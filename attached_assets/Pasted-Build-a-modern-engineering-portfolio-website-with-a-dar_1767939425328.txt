@@ -1,0 +1,295 @@
+Build a modern engineering portfolio website with a dark, technical aesthetic inspired by mechanical schematics, blueprints, and system diagrams. The site should feel precise, engineered, and professional — not flashy — with subtle motion and strong hierarchy suitable for recruiters.
+
+Tech Stack & Constraints
+Framework: Astro
+
+
+Use React islands only where interactivity is needed
+
+
+Language: TypeScript
+
+
+Styling: Tailwind CSS
+
+
+Animations: Framer Motion (subtle, minimal, purposeful)
+
+
+Static-first architecture (fast load, SEO-friendly)
+
+
+Deployed as a static site
+
+
+Clean, readable code structure with reusable components
+
+
+
+Global Navigation Bar
+Top navigation must include:
+About
+
+
+Projects
+
+
+Skills
+
+
+Experience
+
+
+Goals
+
+
+Contact / Media
+
+
+Resume button (opens or downloads a PDF)
+
+
+Navigation behavior:
+About, Skills, Experience, Goals, Contact → smooth-scroll anchors on the homepage (/)
+
+
+Projects → routes to /projects
+
+
+Navbar should remain visible (sticky or semi-sticky)
+
+
+
+Homepage (/) Layout
+The homepage is a chronological vertical scroll.
+1. Hero / Landing Section
+Large visual hero (blueprint / wireframe / technical background)
+
+
+Name and title (Mechanical / Mechatronics / Robotics Engineering)
+
+
+Short, high-impact tagline
+
+
+Primary call-to-action buttons:
+
+
+View Projects
+
+
+Resume
+
+
+
+2. About Section
+Brief professional overview
+
+
+Engineering focus, hands-on mindset, systems thinking
+
+
+Concise and scannable
+
+
+
+3. Featured Projects Section
+Exactly 3 featured project index cards
+
+
+Cards must match this structure:
+
+
+Project image (like the screenshot provided)
+
+
+Project title
+
+
+Short project description
+
+
+Optional “Featured” badge
+
+
+Tags (one or more):
+
+
+Mechanical
+
+
+Electrical
+
+
+Controls
+
+
+Software
+
+
+“View project →” link
+
+
+Clicking a card navigates to that project’s individual project page
+
+
+Above or below the cards, include a large CTA button:
+
+
+“View Full Projects”
+
+
+Routes to /projects
+
+
+
+4. Skills Section
+Categorized skills:
+
+
+Mechanical
+
+
+Electrical / Controls
+
+
+Software
+
+
+Tools / Manufacturing / Simulation
+
+
+Clean grid or grouped layout
+
+
+
+5. Experience Section
+Timeline-style layout
+
+
+Education, internships, work, research, or projects
+
+
+Focus on engineering responsibility and outcomes
+
+
+
+6. Goals Section
+This section should exist
+
+
+Explain engineering direction, interests, and long-term focus
+
+
+Short, intentional, and forward-looking
+
+
+
+7. Contact / Media Section
+Email
+
+
+GitHub
+
+
+LinkedIn
+
+
+Other relevant platforms
+
+
+Clear call to connect or reach out
+
+
+
+Projects Index Page (/projects)
+This page is the single source of truth for all projects.
+Layout:
+Grid of project index cards
+
+
+Cards use the same style as featured cards on the homepage
+
+
+Project card requirements:
+Image
+
+
+Title
+
+
+Short summary
+
+
+Tags (Mechanical / Electrical / Controls / Software)
+
+
+Clicking navigates to that project’s individual page
+
+
+Filtering:
+Tag-based filter UI
+
+
+Multiple tags per project allowed
+
+
+No filters selected by default (all projects visible)
+
+
+Filtering must be client-side and fast
+
+
+
+Individual Project Pages
+Each project has its own page
+
+
+Use a report-style layout, but keep it simple for now:
+
+
+Title
+
+
+Overview
+
+
+Images / diagrams
+
+
+Short sections (Problem, Solution, Result)
+
+
+This is a starter template — designed to be expanded later
+
+
+
+Design & UX Notes
+Dark theme with cool-toned accents (blues, cyans)
+
+
+Blueprint / schematic visual language
+
+
+Clean typography, strong spacing
+
+
+Subtle hover and scroll animations
+
+
+Recruiter-first readability
+
+
+
+Non-Negotiables
+Do NOT use heavy frameworks unnecessarily
+
+
+Do NOT over-animate
+
+
+Do NOT hide content behind gimmicks
+
+
+The site must feel like an engineering artifact, not a marketing page
+
