@@ -80,7 +80,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section - Matching reference design */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
         <div className="absolute inset-0 bg-[#0a1520]">
           <img
             src={heroBackground}
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1520] via-transparent to-[#0a1520]/20" />
         </div>
 
-        <div className="relative z-10 max-w-6xl px-6 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
