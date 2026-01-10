@@ -104,7 +104,7 @@ export default function Home() {
             </p>
             <h1 className="font-display text-6xl md:text-8xl font-bold text-foreground tracking-tight leading-[0.9] mb-6">
               KORDIAN<br />
-              <span>CEBU</span><span className="text-foreground/40">LLA</span>
+              CEBULLA
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Mechanical Engineering Student specializing in{" "}
