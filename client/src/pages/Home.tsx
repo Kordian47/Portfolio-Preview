@@ -96,16 +96,17 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl"
+            className="max-w-xl"
           >
             <p className="font-mono text-primary text-sm tracking-[0.3em] mb-6 flex items-center gap-2">
               <span className="w-4 h-px bg-primary" />
               PORTFOLIO 2026
             </p>
             <h1 className="font-display text-6xl md:text-8xl font-bold text-foreground tracking-tight leading-[0.9] mb-6">
-              KORDIAN<br />CEBULLA
+              KORDIAN<br />
+              <span>CEBU</span><span className="text-foreground/40">LLA</span>
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Mechanical Engineering Student specializing in{" "}
               <span className="text-foreground font-medium">CNC Machining</span>,{" "}
               <span className="text-foreground font-medium">Robotics</span>, and{" "}
@@ -172,7 +173,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-24 bg-card/20">
+      <section className="py-24 bg-card/50">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -246,7 +247,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section - Two Column Layout */}
-      <section id="experience" className="py-24 bg-card/15">
+      <section id="experience" className="py-24 bg-card/30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Education Column */}
@@ -391,7 +392,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-card/20">
+      <section id="contact" className="py-24 bg-card/50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
