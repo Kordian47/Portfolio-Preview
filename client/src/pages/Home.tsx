@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-24 bg-card/50">
+      <section className="py-24 bg-card/20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -246,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section - Two Column Layout */}
-      <section id="experience" className="py-24 bg-card/30">
+      <section id="experience" className="py-24 bg-card/15">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Education Column */}
@@ -391,7 +391,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-card/50">
+      <section id="contact" className="py-24 bg-card/20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
