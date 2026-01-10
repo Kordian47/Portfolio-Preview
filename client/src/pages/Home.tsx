@@ -91,7 +91,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1520] via-transparent to-[#0a1520]/20" />
         </div>
 
-        <div className="relative z-10 max-w-6xl px-6 w-full pl-12 md:pl-20 lg:pl-40 -mt-6">
+        <div className="relative z-10 max-w-6xl px-6 w-full pl-12 md:pl-20 lg:pl-48 -mt-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
