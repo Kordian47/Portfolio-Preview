@@ -81,14 +81,14 @@ export default function Home() {
 
       {/* Hero Section - Matching reference design */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[#0a1520]">
           <img
             src={heroBackground}
             alt=""
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1520]/90 via-[#0a1520]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1520] via-transparent to-[#0a1520]/20" />
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">

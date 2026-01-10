@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "ABOUT", href: "/#about" },
-  { label: "SKILLS", href: "/#skills" },
-  { label: "EXPERIENCE", href: "/#experience" },
-  { label: "PROJECTS", href: "/projects" },
-  { label: "GOALS", href: "/#goals" },
-  { label: "CONTACT", href: "/#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Goals", href: "/#goals" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -32,22 +32,16 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#0d1117]/90 backdrop-blur-md border-b border-white/5"
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <Link href="/">
-            <span className="font-display font-medium text-foreground hover:text-primary transition-colors cursor-pointer tracking-wide" data-testid="link-home">
-              Kordian.
-            </span>
-          </Link>
-
-          <div className="hidden md:flex items-center gap-8">
+        <div className="flex items-center justify-center">
+          <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               item.href === "/projects" ? (
                 <Link key={item.label} href={item.href}>
                   <span
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer font-medium tracking-[0.1em]"
+                    className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
                     data-testid={`link-${item.label.toLowerCase()}`}
                   >
                     {item.label}
@@ -57,7 +51,7 @@ export function Navbar() {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors font-medium tracking-[0.1em]"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
                   data-testid={`link-${item.label.toLowerCase()}`}
                 >
                   {item.label}
@@ -68,10 +62,10 @@ export function Navbar() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-1.5 bg-primary text-primary-foreground rounded text-xs font-medium tracking-wider hover:bg-primary/90 transition-colors"
+              className="px-5 py-2 bg-primary text-primary-foreground rounded text-sm font-medium hover:bg-primary/90 transition-colors ml-4"
               data-testid="button-resume"
             >
-              RESUME
+              Resume
             </a>
           </div>
 
@@ -88,14 +82,14 @@ export function Navbar() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 pb-4 flex flex-col gap-4"
+            className="md:hidden mt-4 pb-4 flex flex-col gap-4 items-center"
           >
             {navItems.map((item) => (
               item.href === "/projects" ? (
                 <Link key={item.label} href={item.href}>
                   <span
                     onClick={() => setIsOpen(false)}
-                    className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer text-sm tracking-wider"
+                    className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                     data-testid={`link-mobile-${item.label.toLowerCase()}`}
                   >
                     {item.label}
@@ -105,7 +99,7 @@ export function Navbar() {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-left text-muted-foreground hover:text-foreground transition-colors text-sm tracking-wider"
+                  className="text-left text-gray-400 hover:text-white transition-colors"
                   data-testid={`link-mobile-${item.label.toLowerCase()}`}
                 >
                   {item.label}
@@ -116,10 +110,10 @@ export function Navbar() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded text-sm font-medium w-fit"
+              className="px-5 py-2 bg-primary text-primary-foreground rounded text-sm font-medium"
               data-testid="button-mobile-resume"
             >
-              RESUME
+              Resume
             </a>
           </motion.div>
         )}
