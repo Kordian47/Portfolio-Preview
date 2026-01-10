@@ -7,7 +7,7 @@ export interface Project {
   title: string;
   description: string;
   image?: string;
-  tags: ("Mechanical" | "Electrical" | "Controls" | "Software")[];
+  tags: ("Mechanical" | "Electrical" | "Controls" | "Software" | "Manufacturing")[];
   featured?: boolean;
   result?: string;
 }
@@ -22,6 +22,7 @@ const tagColors: Record<string, string> = {
   Electrical: "bg-amber-500/10 text-amber-400 border-amber-500/30",
   Controls: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
   Software: "bg-violet-500/10 text-violet-400 border-violet-500/30",
+  Manufacturing: "bg-rose-500/10 text-rose-400 border-rose-500/30",
 };
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {

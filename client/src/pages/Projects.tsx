@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 
-const allTags = ["Mechanical", "Electrical", "Controls", "Software"] as const;
+const allTags = ["Mechanical", "Electrical", "Controls", "Software", "Manufacturing"] as const;
 
 export default function Projects() {
   const [activeTags, setActiveTags] = useState<string[]>([]);

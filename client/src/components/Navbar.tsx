@@ -37,8 +37,8 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <span className="font-display font-semibold text-lg tracking-tight text-foreground hover:text-primary transition-colors cursor-pointer" data-testid="link-home">
-              KC<span className="text-primary">.</span>
+            <span className="font-display font-medium text-foreground hover:text-primary transition-colors cursor-pointer tracking-wide" data-testid="link-home">
+              Kordian.
             </span>
           </Link>
 
@@ -47,7 +47,7 @@ export function Navbar() {
               item.href === "/projects" ? (
                 <Link key={item.label} href={item.href}>
                   <span
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer font-medium"
+                    className="text-[15px] text-muted-foreground hover:text-foreground transition-colors cursor-pointer font-medium"
                     data-testid={`link-${item.label.toLowerCase()}`}
                   >
                     {item.label}
@@ -57,7 +57,7 @@ export function Navbar() {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
+                  className="text-[15px] text-muted-foreground hover:text-foreground transition-colors font-medium"
                   data-testid={`link-${item.label.toLowerCase()}`}
                 >
                   {item.label}
