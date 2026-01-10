@@ -33,6 +33,7 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
 :root {
@@ -96,6 +97,9 @@
   }
   .font-mono {
     font-family: var(--font-mono);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
   }
   .text-gradient {
     background: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(199 70% 65%) 100%);

@@ -13,52 +13,62 @@ const skills = {
   tools: ["Minitab", "Excel", "Microsoft Office", "Project Management"],
 };
 
-const experience = [
+const workExperience = [
   {
-    title: "CNC Machinist",
     company: "Advanced Innovation, Inc.",
+    title: "CNC Machinist",
     location: "Belgrade, MT",
     period: "March 2022 - Present",
     points: [
-      "Operate and program up to 8 CNC mills simultaneously",
-      "Troubleshoot and maintain CNC equipment",
-      "Conduct quality inspections using precision measurement tools",
+      "Operate and program up to 8 CNC mills simultaneously for precision components.",
+      "Troubleshoot and maintain equipment to reduce downtime.",
+      "Conduct quality inspections ensuring compliance with client specs.",
+      "Facilitated training for new employees on CNC operation.",
     ],
   },
   {
-    title: "CNC Machinist / Assembly / Media",
     company: "Hondo Garage",
+    title: "CNC Machinist / Assembly / Media Manager",
     location: "Belgrade, MT",
     period: "January 2023 - July 2024",
     points: [
-      "Designed and 3D-printed custom fixtures for product photography",
-      "Operated CNC mills for prototype and production runs",
+      "Designed and 3D-printed custom fixtures to improve efficiency.",
+      "Produced professional product photography and videography for marketing.",
+      "Operated CNC mills for prototype and production runs.",
     ],
   },
   {
-    title: "CNC Machinist / Assembly",
     company: "Proof",
+    title: "CNC Machinist / Assembly",
     location: "Belgrade, MT",
     period: "January 2023 - July 2024",
     points: [
-      "Built custom enclosures improving workflow efficiency by 45%",
-      "Designed calibration fixtures for automated robot arm",
+      "Designed calibration fixtures for automated CNC-loading robot arms, reducing setup time by 30%.",
+      "Built custom enclosures for laser engravers, improving workflow efficiency by 45%.",
+      "Executed rigorous quality checks on mechanical products.",
     ],
   },
 ];
 
 const education = [
   {
-    degree: "B.S. Mechanical Engineering",
-    school: "Montana State University",
+    institution: "Montana State University",
+    degree: "Bachelor of Science, Mechanical Engineering",
+    location: "Bozeman, MT",
     period: "August 2022 - December 2026",
-    gpa: "3.62 GPA",
+    points: [
+      "GPA: 3.62",
+      "Dean's List - Fall 2021, Spring 2024, Fall 2024",
+    ],
   },
   {
+    institution: "Montana State University",
     degree: "Certificate in CNC Machining",
-    school: "Montana State University",
+    location: "Bozeman, MT",
     period: "August 2021 - May 2022",
-    gpa: "3.61 GPA",
+    points: [
+      "GPA: 3.61",
+    ],
   },
 ];
 
@@ -69,51 +79,54 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Matching reference design */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroBackground}
             alt=""
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="max-w-2xl"
           >
-            <p className="font-mono text-primary text-sm tracking-wider mb-4">
-              MECHANICAL ENGINEERING
+            <p className="font-mono text-primary text-sm tracking-[0.3em] mb-6 flex items-center gap-2">
+              <span className="w-4 h-px bg-primary" />
+              PORTFOLIO 2026
             </p>
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight">
-              Kordian Cebulla
+            <h1 className="font-display text-6xl md:text-8xl font-bold text-foreground tracking-tight leading-[0.9] mb-6">
+              KORDIAN<br />CEBULLA
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-              Engineering precision through CNC machining, robotics, and hands-on problem solving.
-              Building systems that work.
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              Mechanical Engineering Student specializing in{" "}
+              <span className="text-foreground font-medium">CNC Machining</span>,{" "}
+              <span className="text-foreground font-medium">Robotics</span>, and{" "}
+              <span className="text-foreground font-medium">Design</span>.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex gap-4">
               <Link href="/projects">
                 <button
-                  className="px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium flex items-center gap-2 hover:bg-primary/90 transition-colors mx-auto sm:mx-0"
+                  className="px-6 py-3 bg-primary text-primary-foreground rounded font-medium flex items-center gap-2 hover:bg-primary/90 transition-colors text-sm"
                   data-testid="button-view-projects"
                 >
-                  View Projects <ArrowRight size={18} />
+                  View Projects <ArrowRight size={16} />
                 </button>
               </Link>
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 border border-border text-foreground rounded-md font-medium hover:bg-muted transition-colors"
-                data-testid="button-hero-resume"
+              <button
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="px-6 py-3 border border-foreground/30 text-foreground rounded font-medium hover:bg-foreground/5 transition-colors text-sm"
+                data-testid="button-contact-me"
               >
-                Resume
-              </a>
+                Contact Me
+              </button>
             </div>
           </motion.div>
         </div>
@@ -122,9 +135,10 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <ChevronDown className="text-muted-foreground animate-bounce" size={24} />
+          <span className="text-muted-foreground text-xs tracking-[0.2em] font-mono">SCROLL</span>
+          <ChevronDown className="text-muted-foreground" size={20} />
         </motion.div>
       </section>
 
@@ -231,65 +245,118 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-24 bg-card/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-display text-3xl font-bold text-foreground mb-12">
-              <span className="text-primary font-mono text-lg mr-2">04.</span>
-              Experience
-            </h2>
-          </motion.div>
+      {/* Experience Section - Two Column Layout */}
+      <section id="experience" className="py-24 bg-card/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Education Column */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h2 className="font-serif italic text-3xl text-foreground">
+                  Academic<br />Journey
+                </h2>
+              </motion.div>
 
-          <div className="mb-12">
-            <h3 className="font-mono text-primary text-sm mb-6">EDUCATION</h3>
-            <div className="space-y-6">
-              {education.map((edu, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="border-l-2 border-primary/30 pl-6"
-                >
-                  <h4 className="font-display font-semibold text-foreground">{edu.degree}</h4>
-                  <p className="text-muted-foreground text-sm">{edu.school}</p>
-                  <p className="text-muted-foreground text-sm">{edu.period} • {edu.gpa}</p>
-                </motion.div>
-              ))}
+              <div className="space-y-10">
+                {education.map((edu, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative pl-8"
+                  >
+                    {/* Timeline dot and line */}
+                    <div className="absolute left-0 top-2 w-2.5 h-2.5 rounded-full border-2 border-primary bg-background" />
+                    {i < education.length - 1 && (
+                      <div className="absolute left-[4px] top-4 w-px h-[calc(100%+2rem)] bg-border" />
+                    )}
+
+                    <div className="flex justify-between items-start gap-4 mb-2">
+                      <h3 className="font-display font-bold text-lg text-foreground">
+                        {edu.institution}
+                      </h3>
+                      <span className="font-mono text-primary text-sm whitespace-nowrap">
+                        {edu.period}
+                      </span>
+                    </div>
+                    <p className="font-medium text-foreground/90 text-sm mb-1">
+                      {edu.degree}
+                    </p>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      {edu.location}
+                    </p>
+                    <div className="space-y-1.5 border-l border-border/50 pl-4">
+                      {edu.points.map((point, j) => (
+                        <p key={j} className="text-muted-foreground text-sm">
+                          {point}
+                        </p>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h3 className="font-mono text-primary text-sm mb-6">WORK EXPERIENCE</h3>
-            <div className="space-y-8">
-              {experience.map((exp, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="border-l-2 border-primary/30 pl-6"
-                >
-                  <h4 className="font-display font-semibold text-foreground">{exp.title}</h4>
-                  <p className="text-primary text-sm mb-1">{exp.company}</p>
-                  <p className="text-muted-foreground text-sm mb-3">{exp.location} • {exp.period}</p>
-                  <ul className="space-y-1">
-                    {exp.points.map((point, j) => (
-                      <li key={j} className="text-muted-foreground text-sm flex items-start gap-2">
-                        <span className="w-1 h-1 bg-muted-foreground rounded-full mt-2 shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+            {/* Work Experience Column */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-12"
+              >
+                <h2 className="font-serif italic text-3xl text-foreground">
+                  Professional<br />Journey
+                </h2>
+              </motion.div>
+
+              <div className="space-y-10">
+                {workExperience.map((exp, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative pl-8"
+                  >
+                    {/* Timeline dot and line */}
+                    <div className="absolute left-0 top-2 w-2.5 h-2.5 rounded-full border-2 border-primary bg-background" />
+                    {i < workExperience.length - 1 && (
+                      <div className="absolute left-[4px] top-4 w-px h-[calc(100%+2rem)] bg-border" />
+                    )}
+
+                    <div className="flex justify-between items-start gap-4 mb-2">
+                      <h3 className="font-display font-bold text-lg text-foreground">
+                        {exp.company}
+                      </h3>
+                      <span className="font-mono text-primary text-sm whitespace-nowrap">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <p className="font-medium text-foreground/90 text-sm mb-1">
+                      {exp.title}
+                    </p>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      {exp.location}
+                    </p>
+                    <div className="space-y-1.5 border-l border-border/50 pl-4">
+                      {exp.points.map((point, j) => (
+                        <p key={j} className="text-muted-foreground text-sm">
+                          {point}
+                        </p>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
