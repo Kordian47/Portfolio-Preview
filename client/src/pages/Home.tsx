@@ -257,8 +257,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                <h2 className="font-serif italic text-3xl text-foreground">
-                  Academic<br />Journey
+                <h2 className="font-display text-3xl font-bold text-foreground">
+                  Education
                 </h2>
               </motion.div>
 
@@ -312,8 +312,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                <h2 className="font-serif italic text-3xl text-foreground">
-                  Professional<br />Journey
+                <h2 className="font-display text-3xl font-bold text-foreground">
+                  Industry Experience
                 </h2>
               </motion.div>
 
