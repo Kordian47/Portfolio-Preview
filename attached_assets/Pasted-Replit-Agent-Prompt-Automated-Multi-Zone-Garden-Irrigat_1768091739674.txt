@@ -1,0 +1,49 @@
+Replit Agent Prompt — Automated Multi-Zone Garden Irrigation Project Page
+This page replaces the existing placeholder individual project page for the Automated Multi-Zone
+Garden Irrigation System.
+You are building a project page for an engineering portfolio using the attached PDF as the authoritative
+layout, structure, and content specification.
+IMPORTANT RULES (READ CAREFULLY):
+• The provided PDF defines the exact section order, hierarchy, layout intent, and content grouping.
+• Do not reorder, merge, omit, or rename sections unless explicitly instructed.
+• Treat the PDF as a format and structure reference, not as a final visual artifact.
+• All text shown in blue in the PDF is instructional ONLY and must NOT appear in the final rendered
+page.
+• Blue text exists to guide layout, sizing, and placement decisions.
+• Increase all text to normal, web-readable sizes in the final build. Small text in the PDF is only due to
+slide layout constraints.
+MEDIA HANDLING RULES:
+• Do NOT generate any images, diagrams, or graphics.
+• Do NOT redraw diagrams or recreate visuals.
+• Use only the provided uploaded images and videos.
+• Insert images and videos exactly where indicated in the PDF.
+• Reference and place media strictly by the filenames shown in the PDF.
+• Do NOT bake text into images or convert images into backgrounds unless explicitly instructed.
+• Videos should be embedded with their original audio preserved. Do not mute, replace, or remove
+audio tracks.
+HERO SECTION:
+• Use the file named “garden-v2-final-pic” as a full-width hero background image.
+• The hero image should be visually softened/faded and treated as a backdrop, not a foreground image.
+• All hero text overlays should remain readable and clearly separated from the background.
+SUBSYSTEM SECTIONS:
+• Treat each subsystem as a mini engineering report.
+• Each subsystem must include:
+– Purpose
+– Final Implementation
+– Validation and Calibration (if applicable)
+– Iterations and Design Evolution (if applicable)
+– Trade-offs and Design Decisions
+ELECTRICAL & SENSING SUBSYSTEM:
+• Explicitly document that the stepper motor is an open-loop actuator.
+• Explain the need for absolute position calibration.
+• Include the optical interrupter sensor used for homing and re-zeroing.
+• Reference the rotating calibration arm visible in the exploded CAD images.
+• Explain how this enables repeatable zone alignment after power loss.
+GENERAL EXPECTATIONS:
+• Preserve the engineering tone and technical clarity.
+• Avoid marketing language or unnecessary embellishment.
+• Favor structured explanations over long paragraphs.
+• The final result should closely mirror the structure, flow, and intent of the PDF while being optimized
+for a web portfolio.
+This task is a direct translation of the provided PDF into an editable, structured project page. Do not
+reinterpret or redesign the system
