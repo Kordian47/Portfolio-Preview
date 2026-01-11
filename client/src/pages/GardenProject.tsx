@@ -6,7 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import heroImage from "@assets/garden-v2-final-pic_1768091711436.PNG";
 import section1Image from "@assets/garden-v2-section1_1768091711437.png";
 import finalImage from "@assets/garden-v2-final-pic_1768091711436.PNG";
-import explodeVideo from "@assets/garden-v2-explode-animation_1768091711436.mp4";
+import explodeVideo from "@assets/garden-v2-explode-animation.mp4";
 import sectionCutBlue from "@assets/garden-v2-angled-section-cut-blue_1768091711436.png";
 import v1SectionCut from "@assets/garden-v1-angled-section-cut_1768091711436.png";
 import v2Collapse from "@assets/garden-v2-collapse-1_1768091711436.png";
