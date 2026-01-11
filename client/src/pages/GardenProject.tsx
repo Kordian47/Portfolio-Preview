@@ -649,36 +649,35 @@ export default function GardenProject() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-8 items-center">
-                <figure className="space-y-2">
-                  <div className="w-full max-w-sm bg-card border border-border rounded-xl overflow-hidden">
-                    <video
-                      src={explodeVideo}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-auto"
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+                  <figure className="space-y-2">
+                    <div className="bg-card border border-border rounded-xl overflow-hidden">
+                      <video
+                        src={explodeVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <figcaption className="text-sm text-foreground/60">
+                      Exploded CAD view of the distribution hub assembly (stack-up + sealing interfaces).
+                    </figcaption>
+                  </figure>
+                
+                  <figure className="space-y-2">
+                    <img
+                      src={sectionCutBlue}
+                      alt="Distribution hub section cut"
+                      className="w-full rounded-xl border border-border"
                     />
-                  </div>
-                  <figcaption className="text-sm text-foreground/60">
-                    Exploded CAD view of the distribution hub assembly (stack-up
-                    + sealing interfaces).
-                  </figcaption>
-                </figure>
+                    <figcaption className="text-sm text-foreground/60">
+                      Section cut highlighting the internal flow path (blue) and routed outlet geometry.
+                    </figcaption>
+                  </figure>
+                </div>
 
-                <figure className="space-y-2">
-                  <img
-                    src={sectionCutBlue}
-                    alt="Distribution hub section cut"
-                    className="w-full max-w-sm rounded-xl border border-border"
-                  />
-                  <figcaption className="text-sm text-foreground/60">
-                    Section cut highlighting the internal flow path (blue) and
-                    routed outlet geometry.
-                  </figcaption>
-                </figure>
-              </div>
             </div>
           </motion.div>
         </div>
