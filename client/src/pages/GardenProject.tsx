@@ -649,34 +649,40 @@ export default function GardenProject() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
-                  <figure className="space-y-2">
-                    <div className="bg-card border border-border rounded-xl overflow-hidden">
-                      <video
-                        src={explodeVideo}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-auto"
-                      />
-                    </div>
-                    <figcaption className="text-sm text-foreground/60">
-                      Exploded CAD view of the distribution hub assembly (stack-up + sealing interfaces).
-                    </figcaption>
-                  </figure>
-                
-                  <figure className="space-y-2">
-                    <img
-                      src={sectionCutBlue}
-                      alt="Distribution hub section cut"
-                      className="w-full rounded-xl border border-border"
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
+  {/* LEFT: explode spans full height (2 rows) */}
+                <figure className="space-y-2 sm:row-span-2">
+                  <div className="bg-card border border-border rounded-xl overflow-hidden">
+                    <video
+                      src={explodeVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-auto"
                     />
-                    <figcaption className="text-sm text-foreground/60">
-                      Section cut highlighting the internal flow path (blue) and routed outlet geometry.
-                    </figcaption>
-                  </figure>
-                </div>
+                  </div>
+                  <figcaption className="text-sm text-foreground/60">
+                    Exploded CAD view of the distribution hub assembly (stack-up + sealing interfaces).
+                  </figcaption>
+                </figure>
+              
+                {/* TOP-RIGHT: optional spacer so the next image drops down */}
+                <div className="hidden sm:block" />
+              
+                {/* BOTTOM-RIGHT: section cut sits lower, bottom-aligned with explode */}
+                <figure className="space-y-2 sm:row-start-2">
+                  <img
+                    src={sectionCutBlue}
+                    alt="Distribution hub section cut"
+                    className="w-full rounded-xl border border-border"
+                  />
+                  <figcaption className="text-sm text-foreground/60">
+                    Section cut highlighting the internal flow path (blue) and routed outlet geometry.
+                  </figcaption>
+                </figure>
+              </div>
+
 
             </div>
           </motion.div>
