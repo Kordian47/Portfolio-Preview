@@ -24,17 +24,19 @@ const tagColors: Record<string, string> = {
   Software: "bg-violet-500/10 text-violet-400 border-violet-500/30",
 };
 
+
 // Layout + typography helpers
-const PAGE = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
-const PAGE_NARROW = "max-w-5xl mx-auto px-4 sm:px-6 lg:px-8";
-const BODY = "text-foreground/80 leading-relaxed";
-const BODY_SOFT = "text-foreground/70 leading-relaxed";
+const PAGE = "mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10";
+const PAGE_NARROW = "mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-10";
+const BODY = "text-foreground/85 leading-relaxed";
+const BODY_SOFT = "text-foreground/75 leading-relaxed";
+
 
 export default function GardenProject() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-
+      <div className="h-16" />
       {/* Hero + Overview (combined; hero image continues under overview) */}
       <section className="relative overflow-hidden border-b border-border">
         {/* Background */}
