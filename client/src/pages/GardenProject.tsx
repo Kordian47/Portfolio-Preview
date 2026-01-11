@@ -679,7 +679,7 @@ export default function GardenProject() {
             <img
               src={sectionCutBlue}
               alt="Distribution hub section cut"
-              className="w-full rounded-xl border border-border"
+              className="w-full max-w-lg rounded-xl border border-border"
             />
             <figcaption className="text-sm text-foreground/60">
               Section cut highlighting the internal flow path (blue) and routed
