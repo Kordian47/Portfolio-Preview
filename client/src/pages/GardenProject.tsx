@@ -651,14 +651,14 @@ export default function GardenProject() {
 
               <div className="space-y-6">
                 <figure className="space-y-2">
-                  <div className="aspect-square bg-card border border-border rounded-xl overflow-hidden">
+                  <div className="bg-card border border-border rounded-xl overflow-hidden max-w-sm mx-auto">
                     <video
                       src={explodeVideo}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-contain"
+                      className="w-full h-auto"
                     />
                   </div>
                   <figcaption className="text-sm text-foreground/60">
