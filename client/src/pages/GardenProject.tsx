@@ -773,125 +773,297 @@ export default function GardenProject() {
       </section>
 
       {/* Section 8: Electrical & Sensing Subsystem */}
-      <section className="py-16 border-b border-border bg-card/30">
-        <div className={PAGE}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="font-mono text-primary text-sm mb-2">Section 8</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
-              Electrical & Sensing Subsystem
-            </h2>
+<section className="py-16 border-b border-border bg-card/30">
+  <div className={PAGE}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      <p className="font-mono text-primary text-sm mb-2">Section 8</p>
+      <h2 className="font-display text-2xl font-bold text-foreground mb-8">
+        Electrical &amp; Sensing Subsystem — Design &amp; Validation
+      </h2>
 
-            <div className="mb-12">
-              <img
-                src={wholeBreadboard}
-                alt="Complete breadboard layout"
-                className="rounded-xl border border-border w-full max-w-5xl mx-auto brightness-90 contrast-95"
-              />
+      {/* Top “slide-like” layout: text panel left, images right */}
+      <div className="grid lg:grid-cols-[1.35fr_1fr] gap-10 items-start">
+        {/* LEFT: boxed writeup */}
+        <div className="rounded-xl border border-border bg-background/30 p-6">
+          <div className="grid gap-6">
+            <div>
+              <h3 className="font-display font-semibold text-foreground mb-2">
+                Purpose
+              </h3>
+              <p className={BODY}>
+                This subsystem provides sensing, actuation, and timing inputs
+                required to operate the irrigation system autonomously. It
+                interfaces low-voltage sensors and control logic with
+                higher-power actuators while maintaining electrical isolation,
+                repeatability, and ease of operation during development and
+                testing.
+              </p>
             </div>
 
-            <div className="space-y-12">
-              {/* Stepper Motor Control */}
-              <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
-                  Stepper Motor Control (Open-Loop Actuator)
-                </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div className="space-y-4">
-                    <p className={BODY}>
-                      The stepper motor is an open-loop actuator, meaning it
-                      does not inherently know its absolute position. After
-                      power loss or system reset, the controller cannot
-                      determine which zone the distribution hub is aligned with.
-                      This necessitates absolute position calibration at startup.
-                    </p>
-                    <p className={BODY}>
-                      The stepper driver circuit uses an A4988 or DRV8825 driver
-                      module, with microstepping configured for smooth motion
-                      and reduced vibration during zone transitions.
-                    </p>
-                  </div>
-                  <img
-                    src={stepperCircuit}
-                    alt="Stepper motor circuit"
-                    className="rounded-xl border border-border w-full"
-                  />
-                </div>
-              </div>
+            <div>
+              <h3 className="font-display font-semibold text-foreground mb-2">
+                Final Implementation
+              </h3>
 
-              {/* Optical Calibration */}
-              <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
-                  Optical Interrupter Sensor — Homing & Re-Zeroing
-                </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <div className="space-y-4">
-                    <p className={BODY}>
-                      An optical interrupter sensor is used for homing and
-                      absolute position calibration. A rotating calibration arm
-                      (visible in the exploded CAD images) passes through the
-                      sensor slot at a known reference position.
-                    </p>
-                    <p className={BODY}>
-                      At startup, the motor rotates until the optical sensor
-                      detects the calibration arm, establishing the zero
-                      reference. This enables repeatable zone alignment after
-                      power loss or system reboot.
-                    </p>
-                  </div>
-                  <img
-                    src={opticalCircuit}
-                    alt="Optical sensor circuit"
-                    className="rounded-xl border border-border w-full"
-                  />
-                </div>
-              </div>
+              <ul className="space-y-2 text-foreground/80 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>
+                    <span className="font-semibold text-foreground">
+                      Controller:
+                    </span>{" "}
+                    Arduino Mega used to support multiple sensors, timers, and
+                    actuator channels
+                  </span>
+                </li>
 
-              {/* RTC Simulation */}
-              <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
-                  RTC Simulation Circuit
-                </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <p className={BODY}>
-                    For development and testing, buttons simulate RTC (Real-Time
-                    Clock) triggers, allowing manual testing of scheduled
-                    watering cycles without waiting for actual time intervals.
-                  </p>
-                  <img
-                    src={rtcCircuit}
-                    alt="RTC simulation circuit"
-                    className="rounded-xl border border-border w-full"
-                  />
-                </div>
-              </div>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  <span className="flex-1">
+                    <span className="font-semibold text-foreground">
+                      Actuators:
+                    </span>
+                    <ul className="mt-2 space-y-1 pl-4">
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
+                        Stepper motor driver for hub positioning
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
+                        DC pump switched via logic-level MOSFET with flyback
+                        protection
+                      </li>
+                    </ul>
+                  </span>
+                </li>
 
-              {/* Pump Control */}
-              <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
-                  DC Pump Control Circuit
-                </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-                  <p className={BODY}>
-                    The DC pump is controlled via a logic-level MOSFET
-                    (IRLZ44N), enabling the microcontroller to switch the
-                    higher-current pump load. A flyback diode (1N5408) protects
-                    against voltage spikes when the pump is switched off.
-                  </p>
-                  <img
-                    src={pumpCircuit}
-                    alt="Pump control circuit"
-                    className="rounded-xl border border-border w-full"
-                  />
-                </div>
-              </div>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  <span className="flex-1">
+                    <span className="font-semibold text-foreground">
+                      Sensors:
+                    </span>
+                    <ul className="mt-2 space-y-1 pl-4">
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
+                        Optical sensor for hub calibration / homing
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
+                        Soil moisture sensors per zone (capacitive)
+                      </li>
+                    </ul>
+                  </span>
+                </li>
+
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  <span className="flex-1">
+                    <span className="font-semibold text-foreground">
+                      Timing:
+                    </span>
+                    <ul className="mt-2 space-y-1 pl-4">
+                      <li className="flex items-start gap-2">
+                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
+                        RTC behavior simulated using a button-based input system
+                        during early development to validate scheduling logic
+                        before hardware integration
+                      </li>
+                    </ul>
+                  </span>
+                </li>
+              </ul>
             </div>
-          </motion.div>
+
+            <div>
+              <h3 className="font-display font-semibold text-foreground mb-2">
+                Calibration &amp; Absolute Positioning
+              </h3>
+              <p className={BODY}>
+                The distribution hub is driven by a stepper motor, which
+                provides high repeatability for relative positioning but
+                operates as an open-loop system and cannot inherently determine
+                absolute angular position after power loss or reset. To address
+                this limitation, an optical interrupter sensor is used to
+                establish a repeatable mechanical home reference at startup. A
+                dedicated calibration arm integrated into the rotating hub
+                passes through the optical sensor once per revolution,
+                defining a known zero position.
+              </p>
+              <p className={BODY}>
+                At system initialization, the hub rotates until the arm triggers
+                the sensor, allowing the controller to re-zero the angular
+                position before normal operation. This prevents cumulative
+                positioning error, ensures consistent zone alignment, and enables
+                reliable long-term operation without requiring closed-loop motor
+                control.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-display font-semibold text-foreground mb-2">
+                Trade-offs &amp; Design Decisions
+              </h3>
+              <ul className="space-y-2 text-foreground/80 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  Arduino Mega selected over smaller MCUs to simplify early
+                  integration and support multiple I/O channels during rapid
+                  prototyping
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  Breadboard-based validation prioritized flexibility and
+                  observability over electrical robustness during early
+                  development
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  Button-based RTC simulation used to accelerate firmware
+                  validation before committing to dedicated timing hardware
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-lg border border-border bg-background/40 p-4">
+              <p className="text-sm text-primary">
+                Instruction: Scale text up to standard body and heading sizes
+                during implementation. Reduced font size in this PDF is due only
+                to slide layout constraints, not intended final readability.
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
+
+        {/* RIGHT: images + captions (like the slide) */}
+        <div className="space-y-6">
+          <figure className="space-y-2">
+            <img
+              src={wholeBreadboard}
+              alt="Early integration testbed"
+              className="rounded-xl border border-border w-full brightness-95 contrast-95"
+            />
+            <figcaption className="text-sm">
+              <span className="text-primary">
+                Caption
+              </span>
+              <span className="text-foreground/70">
+                {" "}
+                - Early integration testbed used to validate firmware,
+                scheduling logic, and actuator control prior to final hardware
+                packaging.
+              </span>
+              <br />
+              <span className="text-primary text-sm">
+                File name &quot;garden-whole-breadboard&quot;
+              </span>
+            </figcaption>
+          </figure>
+
+          <figure className="space-y-2">
+            <img
+              src={opticalCircuit}
+              alt="Optical interrupter circuit"
+              className="rounded-xl border border-border w-full"
+            />
+            <figcaption className="text-sm">
+              <span className="text-primary">
+                Caption
+              </span>
+              <span className="text-foreground/70">
+                {" "}
+                - Optical interrupter circuit used for hub homing and absolute
+                position calibration at startup.
+              </span>
+              <br />
+              <span className="text-primary text-sm">
+                File name &quot;garden-optical-circuit&quot;
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      {/* Continuation: supporting circuits (3-up grid like the slide) */}
+      <div className="mt-12">
+        <div className="rounded-xl border border-border bg-background/20 p-6">
+          <h3 className="font-display text-xl font-bold text-foreground mb-6">
+            Electrical &amp; Sensing Subsystem (Supporting Circuits)
+          </h3>
+
+          <div className="grid md:grid-cols-3 gap-6 items-start">
+            {/* Stepper */}
+            <figure className="space-y-2">
+              <img
+                src={stepperCircuit}
+                alt="Stepper motor control circuit"
+                className="rounded-xl border border-border w-full"
+              />
+              <figcaption className="text-sm">
+                <span className="text-primary">Caption</span>
+                <span className="text-foreground/70">
+                  {" "}
+                  - Stepper motor control circuit used to position the mechanical
+                  distribution hub.
+                </span>
+                <br />
+                <span className="text-primary text-sm">
+                  File name &quot;garden-stepper-circuit&quot;
+                </span>
+              </figcaption>
+            </figure>
+
+            {/* Pump */}
+            <figure className="space-y-2">
+              <img
+                src={pumpCircuit}
+                alt="DC pump switching circuit"
+                className="rounded-xl border border-border w-full"
+              />
+              <figcaption className="text-sm">
+                <span className="text-primary">Caption</span>
+                <span className="text-foreground/70">
+                  {" "}
+                  - DC pump switching circuit with flyback protection for
+                  inductive load isolation.
+                </span>
+                <br />
+                <span className="text-primary text-sm">
+                  File name &quot;garden-pump-control-circuit&quot;
+                </span>
+              </figcaption>
+            </figure>
+
+            {/* RTC */}
+            <figure className="space-y-2">
+              <img
+                src={rtcCircuit}
+                alt="RTC simulation interface"
+                className="rounded-xl border border-border w-full"
+              />
+              <figcaption className="text-sm">
+                <span className="text-primary">Caption</span>
+                <span className="text-foreground/70">
+                  {" "}
+                  - RTC Simulation Interface (Development Tool)
+                </span>
+                <br />
+                <span className="text-primary text-sm">
+                  File name &quot;garden-RTC-sim-circuit&quot;
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="py-10 border-t border-border">
