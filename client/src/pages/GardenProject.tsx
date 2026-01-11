@@ -781,288 +781,192 @@ export default function GardenProject() {
       viewport={{ once: true }}
     >
       <p className="font-mono text-primary text-sm mb-2">Section 8</p>
-      <h2 className="font-display text-2xl font-bold text-foreground mb-8">
-        Electrical &amp; Sensing Subsystem — Design &amp; Validation
+      <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+        Electrical & Sensing Subsystem
       </h2>
 
-      {/* Top “slide-like” layout: text panel left, images right */}
-      <div className="grid lg:grid-cols-[1.35fr_1fr] gap-10 items-start">
-        {/* LEFT: boxed writeup */}
-        <div className="rounded-xl border border-border bg-background/30 p-6">
-          <div className="grid gap-6">
-            <div>
-              <h3 className="font-display font-semibold text-foreground mb-2">
-                Purpose
-              </h3>
-              <p className={BODY}>
-                This subsystem provides sensing, actuation, and timing inputs
-                required to operate the irrigation system autonomously. It
-                interfaces low-voltage sensors and control logic with
-                higher-power actuators while maintaining electrical isolation,
-                repeatability, and ease of operation during development and
-                testing.
-              </p>
-            </div>
+      {/* === Design & Validation === */}
+      <div className="grid lg:grid-cols-2 gap-10 items-start mb-14">
+        {/* LEFT: TEXT */}
+        <div className="rounded-xl border border-border bg-background/30 p-6 space-y-6">
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-2">
+              Purpose
+            </h3>
+            <p className={BODY}>
+              This subsystem provides sensing, actuation, and timing inputs
+              required to operate the irrigation system autonomously. It
+              interfaces low-voltage sensors and control logic with higher-power
+              actuators while maintaining electrical isolation, repeatability,
+              and ease of operation during development and testing.
+            </p>
+          </div>
 
-            <div>
-              <h3 className="font-display font-semibold text-foreground mb-2">
-                Final Implementation
-              </h3>
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-2">
+              Final Implementation
+            </h3>
+            <ul className="space-y-2 text-foreground/80 text-sm">
+              <li>
+                <strong>Controller:</strong> Arduino Mega used to support
+                multiple sensors, timers, and actuator channels
+              </li>
+              <li>
+                <strong>Actuators:</strong>
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Stepper motor driver for hub positioning</li>
+                  <li>
+                    DC pump switched via logic-level MOSFET with flyback
+                    protection
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sensors:</strong>
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Optical sensor for hub calibration / homing</li>
+                  <li>Soil moisture sensors per zone (capacitive)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Timing:</strong>
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>
+                    RTC behavior simulated using a button-based input system
+                    during early development
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
 
-              <ul className="space-y-2 text-foreground/80 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                  <span>
-                    <span className="font-semibold text-foreground">
-                      Controller:
-                    </span>{" "}
-                    Arduino Mega used to support multiple sensors, timers, and
-                    actuator channels
-                  </span>
-                </li>
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-2">
+              Calibration & Absolute Positioning
+            </h3>
+            <p className={BODY}>
+              The distribution hub is driven by a stepper motor, which provides
+              high repeatability for relative positioning but operates as an
+              open-loop system and cannot inherently determine absolute angular
+              position after power loss or reset. To address this limitation, an
+              optical interrupter sensor is used to establish a repeatable
+              mechanical home reference at startup.
+            </p>
+            <p className={BODY}>
+              A dedicated calibration arm integrated into the rotating hub
+              passes through the optical sensor once per revolution, defining a
+              known zero position. At system initialization, the hub rotates
+              until the arm triggers the sensor, allowing the controller to
+              re-zero the angular position before normal operation. This
+              prevents cumulative positioning error and ensures consistent zone
+              alignment without requiring closed-loop motor control.
+            </p>
+          </div>
 
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                  <span className="flex-1">
-                    <span className="font-semibold text-foreground">
-                      Actuators:
-                    </span>
-                    <ul className="mt-2 space-y-1 pl-4">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
-                        Stepper motor driver for hub positioning
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
-                        DC pump switched via logic-level MOSFET with flyback
-                        protection
-                      </li>
-                    </ul>
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                  <span className="flex-1">
-                    <span className="font-semibold text-foreground">
-                      Sensors:
-                    </span>
-                    <ul className="mt-2 space-y-1 pl-4">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
-                        Optical sensor for hub calibration / homing
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
-                        Soil moisture sensors per zone (capacitive)
-                      </li>
-                    </ul>
-                  </span>
-                </li>
-
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                  <span className="flex-1">
-                    <span className="font-semibold text-foreground">
-                      Timing:
-                    </span>
-                    <ul className="mt-2 space-y-1 pl-4">
-                      <li className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-foreground/50 rounded-full mt-2 shrink-0" />
-                        RTC behavior simulated using a button-based input system
-                        during early development to validate scheduling logic
-                        before hardware integration
-                      </li>
-                    </ul>
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-display font-semibold text-foreground mb-2">
-                Calibration &amp; Absolute Positioning
-              </h3>
-              <p className={BODY}>
-                The distribution hub is driven by a stepper motor, which
-                provides high repeatability for relative positioning but
-                operates as an open-loop system and cannot inherently determine
-                absolute angular position after power loss or reset. To address
-                this limitation, an optical interrupter sensor is used to
-                establish a repeatable mechanical home reference at startup. A
-                dedicated calibration arm integrated into the rotating hub
-                passes through the optical sensor once per revolution,
-                defining a known zero position.
-              </p>
-              <p className={BODY}>
-                At system initialization, the hub rotates until the arm triggers
-                the sensor, allowing the controller to re-zero the angular
-                position before normal operation. This prevents cumulative
-                positioning error, ensures consistent zone alignment, and enables
-                reliable long-term operation without requiring closed-loop motor
-                control.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-display font-semibold text-foreground mb-2">
-                Trade-offs &amp; Design Decisions
-              </h3>
-              <ul className="space-y-2 text-foreground/80 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                  Arduino Mega selected over smaller MCUs to simplify early
-                  integration and support multiple I/O channels during rapid
-                  prototyping
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                  Breadboard-based validation prioritized flexibility and
-                  observability over electrical robustness during early
-                  development
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                  Button-based RTC simulation used to accelerate firmware
-                  validation before committing to dedicated timing hardware
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-lg border border-border bg-background/40 p-4">
-              <p className="text-sm text-primary">
-                Instruction: Scale text up to standard body and heading sizes
-                during implementation. Reduced font size in this PDF is due only
-                to slide layout constraints, not intended final readability.
-              </p>
-            </div>
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-2">
+              Trade-offs & Design Decisions
+            </h3>
+            <ul className="space-y-2 text-foreground/80 text-sm">
+              <li>
+                Arduino Mega selected over smaller MCUs to simplify early
+                integration and support multiple I/O channels during rapid
+                prototyping
+              </li>
+              <li>
+                Breadboard-based validation prioritized flexibility and
+                observability over electrical robustness during early
+                development
+              </li>
+              <li>
+                Button-based RTC simulation used to accelerate firmware
+                validation before committing to dedicated timing hardware
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* RIGHT: images + captions (like the slide) */}
-        <div className="space-y-6">
-          <figure className="space-y-2">
-            <img
-              src={wholeBreadboard}
-              alt="Early integration testbed"
-              className="rounded-xl border border-border w-full brightness-95 contrast-95"
-            />
-            <figcaption className="text-sm">
-              <span className="text-primary">
-                Caption
-              </span>
-              <span className="text-foreground/70">
-                {" "}
-                - Early integration testbed used to validate firmware,
-                scheduling logic, and actuator control prior to final hardware
-                packaging.
-              </span>
-              <br />
-              <span className="text-primary text-sm">
-                File name &quot;garden-whole-breadboard&quot;
-              </span>
-            </figcaption>
-          </figure>
-
-          <figure className="space-y-2">
-            <img
-              src={opticalCircuit}
-              alt="Optical interrupter circuit"
-              className="rounded-xl border border-border w-full"
-            />
-            <figcaption className="text-sm">
-              <span className="text-primary">
-                Caption
-              </span>
-              <span className="text-foreground/70">
-                {" "}
-                - Optical interrupter circuit used for hub homing and absolute
-                position calibration at startup.
-              </span>
-              <br />
-              <span className="text-primary text-sm">
-                File name &quot;garden-optical-circuit&quot;
-              </span>
-            </figcaption>
-          </figure>
-        </div>
+        {/* RIGHT: INTEGRATION IMAGE */}
+        <figure className="space-y-2">
+          <img
+            src={wholeBreadboard}
+            alt="Early integration testbed"
+            className="rounded-xl border border-border w-full brightness-90 contrast-95"
+          />
+          <figcaption className="text-sm text-foreground/60">
+            Early integration testbed used to validate firmware, scheduling
+            logic, and actuator control prior to final hardware packaging.
+            <br />
+            <span className="text-primary font-mono">
+              File name: "garden-whole-breadboard"
+            </span>
+          </figcaption>
+        </figure>
       </div>
 
-      {/* Continuation: supporting circuits (3-up grid like the slide) */}
-      <div className="mt-12">
-        <div className="rounded-xl border border-border bg-background/20 p-6">
-          <h3 className="font-display text-xl font-bold text-foreground mb-6">
-            Electrical &amp; Sensing Subsystem (Supporting Circuits)
-          </h3>
+      {/* === Supporting Circuits === */}
+      <div className="rounded-xl border border-border bg-background/30 p-6">
+        <h3 className="font-display font-semibold text-foreground mb-6">
+          Electrical & Sensing Subsystem (Supporting Circuits)
+        </h3>
 
-          <div className="grid md:grid-cols-3 gap-6 items-start">
-            {/* Stepper */}
-            <figure className="space-y-2">
-              <img
-                src={stepperCircuit}
-                alt="Stepper motor control circuit"
-                className="rounded-xl border border-border w-full"
-              />
-              <figcaption className="text-sm">
-                <span className="text-primary">Caption</span>
-                <span className="text-foreground/70">
-                  {" "}
-                  - Stepper motor control circuit used to position the mechanical
-                  distribution hub.
-                </span>
-                <br />
-                <span className="text-primary text-sm">
-                  File name &quot;garden-stepper-circuit&quot;
-                </span>
-              </figcaption>
-            </figure>
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Stepper */}
+          <figure className="space-y-2">
+            <img
+              src={stepperCircuit}
+              alt="Stepper motor control circuit"
+              className="rounded-xl border border-border w-full"
+            />
+            <figcaption className="text-sm text-foreground/60">
+              Stepper motor control circuit used to position the mechanical
+              distribution hub.
+              <br />
+              <span className="text-primary font-mono">
+                File name: "garden-stepper-circuit"
+              </span>
+            </figcaption>
+          </figure>
 
-            {/* Pump */}
-            <figure className="space-y-2">
-              <img
-                src={pumpCircuit}
-                alt="DC pump switching circuit"
-                className="rounded-xl border border-border w-full"
-              />
-              <figcaption className="text-sm">
-                <span className="text-primary">Caption</span>
-                <span className="text-foreground/70">
-                  {" "}
-                  - DC pump switching circuit with flyback protection for
-                  inductive load isolation.
-                </span>
-                <br />
-                <span className="text-primary text-sm">
-                  File name &quot;garden-pump-control-circuit&quot;
-                </span>
-              </figcaption>
-            </figure>
+          {/* Pump */}
+          <figure className="space-y-2">
+            <img
+              src={pumpCircuit}
+              alt="DC pump control circuit"
+              className="rounded-xl border border-border w-full"
+            />
+            <figcaption className="text-sm text-foreground/60">
+              DC pump switching circuit with flyback protection for inductive
+              load isolation.
+              <br />
+              <span className="text-primary font-mono">
+                File name: "garden-pump-control-circuit"
+              </span>
+            </figcaption>
+          </figure>
 
-            {/* RTC */}
-            <figure className="space-y-2">
-              <img
-                src={rtcCircuit}
-                alt="RTC simulation interface"
-                className="rounded-xl border border-border w-full"
-              />
-              <figcaption className="text-sm">
-                <span className="text-primary">Caption</span>
-                <span className="text-foreground/70">
-                  {" "}
-                  - RTC Simulation Interface (Development Tool)
-                </span>
-                <br />
-                <span className="text-primary text-sm">
-                  File name &quot;garden-RTC-sim-circuit&quot;
-                </span>
-              </figcaption>
-            </figure>
-          </div>
+          {/* RTC */}
+          <figure className="space-y-2">
+            <img
+              src={rtcCircuit}
+              alt="RTC simulation interface"
+              className="rounded-xl border border-border w-full"
+            />
+            <figcaption className="text-sm text-foreground/60">
+              RTC simulation interface (development tool) used to trigger
+              scheduled watering events.
+              <br />
+              <span className="text-primary font-mono">
+                File name: "garden-RTC-sim-circuit"
+              </span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </motion.div>
   </div>
 </section>
+
 
 
       {/* Footer */}
