@@ -897,9 +897,6 @@ export default function GardenProject() {
             Early integration testbed used to validate firmware, scheduling
             logic, and actuator control prior to final hardware packaging.
             <br />
-            <span className="text-primary font-mono">
-              File name: "garden-whole-breadboard"
-            </span>
           </figcaption>
         </figure>
       </div>
@@ -922,9 +919,7 @@ export default function GardenProject() {
               Stepper motor control circuit used to position the mechanical
               distribution hub.
               <br />
-              <span className="text-primary font-mono">
-                File name: "garden-stepper-circuit"
-              </span>
+              
             </figcaption>
           </figure>
 
@@ -939,9 +934,7 @@ export default function GardenProject() {
               DC pump switching circuit with flyback protection for inductive
               load isolation.
               <br />
-              <span className="text-primary font-mono">
-                File name: "garden-pump-control-circuit"
-              </span>
+              
             </figcaption>
           </figure>
 
@@ -956,9 +949,6 @@ export default function GardenProject() {
               RTC simulation interface (development tool) used to trigger
               scheduled watering events.
               <br />
-              <span className="text-primary font-mono">
-                File name: "garden-RTC-sim-circuit"
-              </span>
             </figcaption>
           </figure>
         </div>
