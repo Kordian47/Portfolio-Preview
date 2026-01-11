@@ -675,7 +675,8 @@ export default function GardenProject() {
           <div className="hidden sm:block" />
 
           {/* BOTTOM-RIGHT: section cut sits lower, bottom-aligned with explode */}
-          <figure className="space-y-2 sm:row-start-2 w-full">
+          <figure className="space-y-2 sm:row-start-2 sm:col-span-2 w-full">
+
             <img
               src={sectionCutBlue}
               alt="Distribution hub section cut"
