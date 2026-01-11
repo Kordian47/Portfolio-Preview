@@ -71,8 +71,8 @@ export default function GardenProject() {
               Automated Multi-Zone Garden Irrigation System
             </h1>
             <p className="text-muted-foreground text-lg mb-6 max-w-2xl">
-              Iterative prototype — current focus on Version 3 reliability and
-              fluid isolation
+              Iterative prototype — current focus on Version 3 reliability,
+              sealing, and fluid isolation
             </p>
 
             <div className="flex flex-wrap gap-2">
@@ -109,8 +109,8 @@ export default function GardenProject() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                Uses a single motorized distribution hub instead of multiple
-                solenoid valves
+                Uses a single motorized mechanical distribution hub in place of
+                per-zone solenoid valves
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
@@ -141,11 +141,11 @@ export default function GardenProject() {
                     Design Objective
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Conventional multi-zone irrigation systems rely on
-                    individual solenoid valves per zone, increasing cost, wiring
-                    complexity, and system footprint. These systems are poorly
-                    suited for compact indoor growing environments where
-                    scalability and adaptability are critical.
+                    Conventional multi-zone irrigation systems rely on dedicated
+                    solenoid valves per zone, increasing cost, wiring
+                    complexity, and system footprint. This approach scales
+                    poorly for compact indoor growing environments where
+                    adaptability and modularity are critical.
                   </p>
                 </div>
 
@@ -154,12 +154,11 @@ export default function GardenProject() {
                     Core Idea / Solution
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Rather than using per-zone solenoid valves, this system
-                    employs a single-actuator mechanical distribution hub that
-                    sequentially routes water to multiple zones. This approach
-                    reduces hardware count while maintaining precise,
-                    zone-specific control through scheduling and sensor
-                    feedback.
+                    Instead of per-zone solenoid valves, this system uses a
+                    single-actuator mechanical distribution hub that
+                    sequentially routes water to multiple zones. Hardware count
+                    is reduced while maintaining zone-specific control through
+                    scheduling logic and soil-moisture feedback.
                   </p>
                 </div>
 
@@ -168,11 +167,11 @@ export default function GardenProject() {
                     Outcome
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    The final prototype successfully demonstrated automated,
-                    sensor-driven irrigation across multiple zones using minimal
-                    actuation hardware. The system reduced complexity and cost
-                    while remaining modular and manufacturable using 3D printing
-                    and off-the-shelf components.
+                    The prototype demonstrated automated, sensor-driven
+                    irrigation across multiple zones using minimal actuation
+                    hardware. The system reduced complexity and cost while
+                    remaining modular and manufacturable using 3D-printed and
+                    off-the-shelf components.
                   </p>
                 </div>
               </div>
@@ -225,7 +224,7 @@ export default function GardenProject() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Time / schedule (RTC or software timing)
+                    Time / schedule (RTC or software-based timing)
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
@@ -253,7 +252,7 @@ export default function GardenProject() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Select irrigation zone & regulate water distribution
+                    Select irrigation zone and regulate water routing
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
@@ -288,13 +287,13 @@ export default function GardenProject() {
             </div>
 
             <p className="text-muted-foreground leading-relaxed max-w-4xl">
-              This black-box model represents the garden irrigation system at a
-              functional level. External inputs such as water supply, electrical
-              power, time, and soil moisture measurements are processed by
-              control logic that determines watering demand and routes flow
-              through a compact distribution hub. The system outputs regulated
-              water delivery to individual zones while maintaining target soil
-              moisture levels and providing system state feedback.
+              This black-box model represents the irrigation system at a
+              functional level. External inputs—including water supply,
+              electrical power, timing, and soil-moisture measurements—are
+              processed by control logic that determines watering demand and
+              routes flow through a compact distribution hub. The system outputs
+              regulated water delivery to individual zones along with system
+              state feedback.
             </p>
           </motion.div>
         </div>
@@ -337,7 +336,7 @@ export default function GardenProject() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0" />
-                    Regulate water flow
+                    Regulate flow rate during irrigation
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0" />
@@ -373,7 +372,7 @@ export default function GardenProject() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-amber-400 rounded-full mt-2 shrink-0" />
-                    Scheduling intervals (time & frequency)
+                    Scheduling intervals (timing and frequency)
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-amber-400 rounded-full mt-2 shrink-0" />
@@ -405,7 +404,7 @@ export default function GardenProject() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-rose-400 rounded-full mt-2 shrink-0" />
-                    Water isolation from printed parts
+                    Water isolation from printed structural components
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1 h-1 bg-rose-400 rounded-full mt-2 shrink-0" />
@@ -460,8 +459,8 @@ export default function GardenProject() {
                       Signal path (control):
                     </span>
                     <span className="text-muted-foreground">
-                      sensors + clock → controller → actuators (pump + hub
-                      motor) → water
+                      sensors + clock → controller → actuators (pump and hub
+                      motor)
                     </span>
                   </div>
                   <div className="flex items-start gap-4">
@@ -514,7 +513,7 @@ export default function GardenProject() {
                       Status:
                     </span>
                     <span className="text-muted-foreground">
-                      Functional prototype meeting initial design requirements.
+                      Functional prototype meeting initial design requirements
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
@@ -522,8 +521,8 @@ export default function GardenProject() {
                       Current focus:
                     </span>
                     <span className="text-muted-foreground">
-                      Compact mechanical distribution and single-actuator
-                      control.
+                      Compact mechanical distribution with single-actuator
+                      control
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
@@ -531,7 +530,7 @@ export default function GardenProject() {
                       Next iteration:
                     </span>
                     <span className="text-muted-foreground">
-                      Fluid-isolated components to improve reliability.
+                      Fluid-isolated components to improve reliability
                     </span>
                   </div>
                 </div>
@@ -559,7 +558,7 @@ export default function GardenProject() {
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
                   Reduced actuation hardware from N solenoids to a single motor
-                  via mechanical routing
+                  through mechanical routing
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
@@ -604,9 +603,10 @@ export default function GardenProject() {
                     The distribution hub routes water from a single supply to
                     multiple plant zones using a single actuator, enabling
                     compact packaging, reduced cost, and simplified control
-                    compared to multi-valve systems. It serves as the mechanical
-                    interface between the pump and downstream irrigation lines
-                    while enforcing controlled, sequential water delivery.
+                    relative to multi-valve architectures. It serves as the
+                    mechanical interface between the pump and downstream
+                    irrigation lines while enforcing controlled, sequential
+                    water delivery.
                   </p>
                 </div>
 
@@ -661,7 +661,7 @@ export default function GardenProject() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                      Designed for printed parts + off-the-shelf hardware
+                      Designed using printed parts and off-the-shelf hardware
                     </li>
                   </ul>
                 </div>
@@ -714,8 +714,8 @@ export default function GardenProject() {
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   This initial iteration explored a simple mechanical routing
-                  concept to validate the single-actuator approach for
-                  multi-zone water distribution.
+                  concept to validate the single-actuator approach for multi-zone
+                  water distribution.
                 </p>
               </div>
 
@@ -750,15 +750,14 @@ export default function GardenProject() {
                   Iteration 3 — Dry Switching Architecture (Planned)
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  The next iteration shifts away from rotating wetted interfaces
-                  entirely by decoupling mechanical switching from fluid
-                  sealing. The proposed architecture uses a dry mechanical
-                  switching mechanism to sequentially connect a main supply hose
-                  to individual zone hoses, eliminating direct water contact
-                  with moving printed components. This approach is intended to
-                  reduce leakage risk, improve long-term reliability, and relax
-                  tolerance requirements by isolating fluid sealing to static
-                  interfaces.
+                  The next iteration eliminates rotating wetted interfaces by
+                  decoupling mechanical switching from fluid sealing. A dry
+                  mechanical switching mechanism sequentially connects a main
+                  supply hose to individual zone lines, eliminating direct water
+                  contact with moving printed components. This approach is
+                  intended to reduce leakage risk, improve long-term reliability,
+                  and relax sealing tolerances by isolating fluid interfaces to
+                  static components.
                 </p>
               </div>
             </div>
@@ -796,17 +795,16 @@ export default function GardenProject() {
                 <div className="grid lg:grid-cols-2 gap-8">
                   <div>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      The stepper motor is an open-loop actuator, meaning it
-                      does not inherently know its absolute position. After
-                      power loss or system reset, the controller cannot
-                      determine which zone the distribution hub is aligned with.
-                      This necessitates absolute position calibration at
-                      startup.
+                      The distribution hub is driven by a stepper motor operating
+                      in open-loop control, meaning absolute position is not
+                      inherently known after power loss or reset. The controller
+                      cannot infer hub alignment without an external reference,
+                      necessitating absolute position calibration at startup.
                     </p>
                     <p className="text-muted-foreground leading-relaxed">
-                      The stepper driver circuit uses an A4988 or DRV8825 driver
-                      module, with microstepping configured for smooth motion
-                      and reduced vibration during zone transitions.
+                      Motor drive is implemented using an A4988 or DRV8825 stepper
+                      driver, with microstepping enabled to reduce vibration and
+                      improve positional smoothness during zone transitions.
                     </p>
                   </div>
                   <img
@@ -825,16 +823,16 @@ export default function GardenProject() {
                 <div className="grid lg:grid-cols-2 gap-8">
                   <div>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      An optical interrupter sensor is used for homing and
-                      absolute position calibration. A rotating calibration arm
-                      (visible in the exploded CAD images) passes through the
-                      sensor slot at a known reference position.
+                      An optical interrupter sensor provides homing and absolute
+                      position reference for the distribution hub. A rotating
+                      calibration arm (visible in the exploded CAD images) passes
+                      through the sensor at a known angular position.
                     </p>
                     <p className="text-muted-foreground leading-relaxed">
-                      At startup, the motor rotates until the optical sensor
-                      detects the calibration arm, establishing the zero
-                      reference. This enables repeatable zone alignment after
-                      power loss or system reboot.
+                      At startup, the motor advances until the sensor is
+                      triggered, establishing a repeatable zero reference. This
+                      ensures consistent zone alignment after power loss or
+                      system reset.
                     </p>
                   </div>
                   <img
@@ -852,9 +850,11 @@ export default function GardenProject() {
                 </h3>
                 <div className="grid lg:grid-cols-2 gap-8">
                   <p className="text-muted-foreground leading-relaxed">
-                    For development and testing, buttons simulate RTC (Real-Time
-                    Clock) triggers, allowing manual testing of scheduled
-                    watering cycles without waiting for actual time intervals.
+                    During development and testing, push-button inputs simulate
+                    RTC (Real-Time Clock) trigger events. This allows scheduled
+                    watering logic to be exercised deterministically without
+                    waiting for real-time intervals, accelerating validation and
+                    debugging.
                   </p>
                   <img
                     src={rtcCircuit}
@@ -871,10 +871,12 @@ export default function GardenProject() {
                 </h3>
                 <div className="grid lg:grid-cols-2 gap-8">
                   <p className="text-muted-foreground leading-relaxed">
-                    The DC pump is controlled via a logic-level MOSFET
-                    (IRLZ44N), enabling the microcontroller to switch the
-                    higher-current pump load. A flyback diode (1N5408) protects
-                    against voltage spikes when the pump is switched off.
+                    The DC pump is switched using a logic-level N-channel MOSFET
+                    (IRLZ44N), allowing the microcontroller to control the
+                    inductive pump load directly. A flyback diode (1N5408) is
+                    placed across the pump terminals to suppress inductive
+                    voltage spikes during turn-off and protect the switching
+                    device.
                   </p>
                   <img
                     src={pumpCircuit}
