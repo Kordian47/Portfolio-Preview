@@ -580,114 +580,118 @@ export default function GardenProject() {
       </section>
 
       {/* Section 6: Distribution Hub Sub-System */}
-      <section className="py-16 border-b border-border bg-card/30">
-        <div className={PAGE}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="font-mono text-primary text-sm mb-2">Section 6</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
-              Distribution Hub Sub-System
-            </h2>
+<section className="py-16 border-b border-border bg-card/30">
+  <div className={PAGE}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      <p className="font-mono text-primary text-sm mb-2">Section 6</p>
+      <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+        Distribution Hub Sub-System
+      </h2>
 
-            <div className="grid lg:grid-cols-2 gap-6 items-start">
-              <div className="space-y-8">
-                <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
-                    Purpose
-                  </h3>
-                  <p className={BODY}>
-                    The distribution hub routes water from a single supply to
-                    multiple plant zones using a single actuator, enabling
-                    compact packaging, reduced cost, and simplified control
-                    compared to multi-valve systems. It serves as the mechanical
-                    interface between the pump and downstream irrigation lines
-                    while enforcing controlled, sequential water delivery.
-                  </p>
-                </div>
+      {/* Main 2-column layout (reduced gap to pull media closer) */}
+      <div className="grid lg:grid-cols-[1.25fr_1fr] gap-4 lg:gap-4 items-start">
+        {/* LEFT: text */}
+        <div className="space-y-8">
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-3">
+              Purpose
+            </h3>
+            <p className={BODY}>
+              The distribution hub routes water from a single supply to multiple
+              plant zones using a single actuator, enabling compact packaging,
+              reduced cost, and simplified control compared to multi-valve
+              systems. It serves as the mechanical interface between the pump
+              and downstream irrigation lines while enforcing controlled,
+              sequential water delivery.
+            </p>
+          </div>
 
-                <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
-                    Design Requirements
-                  </h3>
-                  <ul className="space-y-2 text-foreground/75 text-sm">
-                    {[
-                      "Route water to multiple outlets using one motor",
-                      "Minimize footprint for indoor use",
-                      "Prevent cross-flow between zones",
-                      "Be manufacturable without CNC machining",
-                      "Be compatible with low-cost hobby pumps",
-                      "Isolate water from printed components",
-                    ].map((t) => (
-                      <li key={t} className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-3">
+              Design Requirements
+            </h3>
+            <ul className="space-y-2 text-foreground/75 text-sm">
+              {[
+                "Route water to multiple outlets using one motor",
+                "Minimize footprint for indoor use",
+                "Prevent cross-flow between zones",
+                "Be manufacturable without CNC machining",
+                "Be compatible with low-cost hobby pumps",
+                "Isolate water from printed components",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
-                    Final Implementation (Current)
-                  </h3>
-                  <ul className="space-y-2 text-foreground/75 text-sm">
-                    {[
-                      "One motor replaces multiple solenoids",
-                      "Compact cylindrical form factor",
-                      "Modular outlet count",
-                      "Designed for printed parts + off-the-shelf hardware",
-                    ].map((t) => (
-                      <li key={t} className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-end">
-  {/* LEFT: explode spans full height (2 rows) */}
-                <figure className="space-y-2 sm:row-span-2">
-                  <div className="bg-card border border-border rounded-xl overflow-hidden">
-                    <video
-                      src={explodeVideo}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-auto"
-                    />
-                  </div>
-                  <figcaption className="text-sm text-foreground/60">
-                    Exploded CAD view of the distribution hub assembly (stack-up + sealing interfaces).
-                  </figcaption>
-                </figure>
-              
-                {/* TOP-RIGHT: optional spacer so the next image drops down */}
-                <div className="hidden sm:block" />
-              
-                {/* BOTTOM-RIGHT: section cut sits lower, bottom-aligned with explode */}
-                <figure className="space-y-2 sm:row-start-2">
-                  <img
-                    src={sectionCutBlue}
-                    alt="Distribution hub section cut"
-                    className="w-full rounded-xl border border-border"
-                  />
-                  <figcaption className="text-sm text-foreground/60">
-                    Section cut highlighting the internal flow path (blue) and routed outlet geometry.
-                  </figcaption>
-                </figure>
-              </div>
-
-
-            </div>
-          </motion.div>
+          <div>
+            <h3 className="font-display font-semibold text-foreground mb-3">
+              Final Implementation (Current)
+            </h3>
+            <ul className="space-y-2 text-foreground/75 text-sm">
+              {[
+                "One motor replaces multiple solenoids",
+                "Compact cylindrical form factor",
+                "Modular outlet count",
+                "Designed for printed parts + off-the-shelf hardware",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </section>
+
+        {/* RIGHT: media layout (explode tall; section-cut bottom-aligned) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end justify-items-start">
+          {/* LEFT: explode spans full height (2 rows) */}
+          <figure className="space-y-2 sm:row-span-2 w-full">
+            <div className="bg-card border border-border rounded-xl overflow-hidden w-full">
+              <video
+                src={explodeVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="text-sm text-foreground/60">
+              Exploded CAD view of the distribution hub assembly (stack-up +
+              sealing interfaces).
+            </figcaption>
+          </figure>
+
+          {/* TOP-RIGHT spacer so the section cut drops down */}
+          <div className="hidden sm:block" />
+
+          {/* BOTTOM-RIGHT: section cut sits lower, bottom-aligned with explode */}
+          <figure className="space-y-2 sm:row-start-2 w-full">
+            <img
+              src={sectionCutBlue}
+              alt="Distribution hub section cut"
+              className="w-full rounded-xl border border-border"
+            />
+            <figcaption className="text-sm text-foreground/60">
+              Section cut highlighting the internal flow path (blue) and routed
+              outlet geometry.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Section 7: Distribution Hub Iterations */}
       <section className="py-16 border-b border-border">
