@@ -592,7 +592,7 @@ export default function GardenProject() {
               Distribution Hub Sub-System
             </h2>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-6 items-start">
               <div className="space-y-8">
                 <div>
                   <h3 className="font-display font-semibold text-foreground mb-3">
