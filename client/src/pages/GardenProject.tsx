@@ -24,19 +24,20 @@ const tagColors: Record<string, string> = {
   Software: "bg-violet-500/10 text-violet-400 border-violet-500/30",
 };
 
-
 // Layout + typography helpers
-const PAGE = "mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10";
-const PAGE_NARROW = "mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-10";
-const BODY = "text-foreground/85 leading-relaxed";
-const BODY_SOFT = "text-foreground/75 leading-relaxed";
+// NOTE: max-w-[1700px] is intentionally wide to reduce “empty sides” on 1080p/1440p monitors.
+const PAGE = "mx-auto w-full max-w-[1700px] px-5 sm:px-8 lg:px-12";
+const PAGE_NARROW = "mx-auto w-full max-w-[1100px] px-5 sm:px-8 lg:px-12";
 
+// Brighter body copy (you asked for readability)
+const BODY = "text-foreground/90 leading-relaxed";
+const BODY_SOFT = "text-foreground/80 leading-relaxed";
 
 export default function GardenProject() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <div className="h-16" />
+
       {/* Hero + Overview (combined; hero image continues under overview) */}
       <section className="relative overflow-hidden border-b border-border">
         {/* Background */}
@@ -44,14 +45,15 @@ export default function GardenProject() {
           <img
             src={heroImage}
             alt="Garden Irrigation System"
-            className="w-full h-full object-cover opacity-40"
+            className="h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent" />
         </div>
 
         <div className="relative z-10">
-          <div className={`${PAGE} pt-16 pb-10`}>
+          {/* Space under navbar is handled HERE (not with a spacer div) */}
+          <div className={`${PAGE} pt-24 pb-14`}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -59,7 +61,7 @@ export default function GardenProject() {
             >
               <Link href="/projects">
                 <button
-                  className="flex items-center gap-2 text-foreground/70 hover:text-primary transition-colors mb-6"
+                  className="mb-7 flex items-center gap-2 text-foreground/70 transition-colors hover:text-primary"
                   data-testid="button-back-projects"
                 >
                   <ArrowLeft size={18} />
@@ -67,21 +69,21 @@ export default function GardenProject() {
                 </button>
               </Link>
 
-              <div className="flex items-center gap-4 mb-3">
-                <span className="text-foreground/70 text-sm font-medium">
+              <div className="mb-4 flex items-center gap-4">
+                <span className="text-sm font-medium text-foreground/70">
                   Team Project
                 </span>
                 <span className="text-foreground/40">•</span>
-                <span className="text-primary font-mono text-sm">
+                <span className="font-mono text-sm text-primary">
                   May 2025 - June 2025
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-3 max-w-3xl">
+              <h1 className="mb-4 max-w-4xl font-display text-4xl font-bold text-foreground md:text-5xl">
                 Automated Multi-Zone Garden Irrigation System
               </h1>
 
-              <p className={`${BODY_SOFT} text-lg mb-5 max-w-2xl`}>
+              <p className={`${BODY_SOFT} mb-6 max-w-3xl text-lg`}>
                 Iterative prototype — current focus on Version 3 reliability,
                 sealing, and fluid isolation
               </p>
@@ -91,7 +93,7 @@ export default function GardenProject() {
                   (tag) => (
                     <span
                       key={tag}
-                      className={`px-3 py-1 text-xs font-medium border rounded ${tagColors[tag]}`}
+                      className={`rounded border px-3 py-1 text-xs font-medium ${tagColors[tag]}`}
                     >
                       {tag}
                     </span>
@@ -100,24 +102,24 @@ export default function GardenProject() {
               </div>
 
               {/* Project Overview inside hero */}
-              <div className="mt-8 max-w-3xl">
-                <div className="rounded-xl border border-border bg-background/35 backdrop-blur-md p-6">
-                  <h2 className="font-display text-xl font-bold text-foreground mb-4">
+              <div className="mt-9 max-w-4xl">
+                <div className="rounded-2xl border border-border bg-background/35 p-7 backdrop-blur-md">
+                  <h2 className="mb-4 font-display text-xl font-bold text-foreground">
                     Project Overview
                   </h2>
-                  <ul className="space-y-3 text-foreground/80">
+                  <ul className="space-y-3 text-foreground/85">
                     <li className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       Automated indoor irrigation system for multi-zone plant
                       watering
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       Uses a single motorized distribution hub instead of
                       multiple solenoid valves
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       Soil-moisture feedback enables adaptive, zone-specific
                       watering
                     </li>
@@ -133,22 +135,23 @@ export default function GardenProject() {
       </section>
 
       {/* Section 1: System Overview & Design Intent */}
-      <section className="py-16 border-b border-border">
+      <section className="border-b border-border py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 1</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+            <p className="mb-2 font-mono text-sm text-primary">Section 1</p>
+            <h2 className="mb-10 font-display text-2xl font-bold text-foreground">
               System Overview & Design Intent
             </h2>
 
-            <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-12 items-center">
+            {/* bigger image + wider layout */}
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1.55fr]">
               <div className="space-y-8">
                 <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
+                  <h3 className="mb-3 font-display font-semibold text-foreground">
                     Design Objective
                   </h3>
                   <p className={BODY}>
@@ -161,7 +164,7 @@ export default function GardenProject() {
                 </div>
 
                 <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
+                  <h3 className="mb-3 font-display font-semibold text-foreground">
                     Core Idea / Solution
                   </h3>
                   <p className={BODY}>
@@ -175,7 +178,7 @@ export default function GardenProject() {
                 </div>
 
                 <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
+                  <h3 className="mb-3 font-display font-semibold text-foreground">
                     Outcome
                   </h3>
                   <p className={BODY}>
@@ -192,7 +195,7 @@ export default function GardenProject() {
                 <img
                   src={section1Image}
                   alt="Full system overview"
-                  className="rounded-xl border border-border w-full shadow-sm"
+                  className="w-full rounded-2xl border border-border shadow-sm"
                 />
               </div>
             </div>
@@ -201,119 +204,93 @@ export default function GardenProject() {
       </section>
 
       {/* Section 2: High Level System Model */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section className="border-b border-border bg-card/30 py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 2</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-3">
+            <p className="mb-2 font-mono text-sm text-primary">Section 2</p>
+            <h2 className="mb-3 font-display text-2xl font-bold text-foreground">
               High Level System Model
             </h2>
-            <h3 className="text-lg text-foreground/60 mb-8">
+            <h3 className="mb-8 text-lg text-foreground/60">
               Black-Box System Model
             </h3>
 
             {/* Boxes with arrows */}
-            <div className="grid md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 items-stretch mb-6">
-              {/* Inputs */}
-              <div className="bg-card border border-border rounded-xl p-6">
-                <h4 className="font-display font-semibold text-foreground mb-4">
+            <div className="mb-4 grid items-stretch gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h4 className="mb-4 font-display font-semibold text-foreground">
                   Inputs
                 </h4>
-                <ul className="space-y-2 text-foreground/75 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Water supply (pressure & flow)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Electrical power
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Soil moisture sensor signals
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Time / schedule (RTC or software timing)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    User-defined settings (thresholds, schedules)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Environmental disturbances (plant uptake, evaporation)
-                  </li>
+                <ul className="space-y-2 text-sm text-foreground/80">
+                  {[
+                    "Water supply (pressure & flow)",
+                    "Electrical power",
+                    "Soil moisture sensor signals",
+                    "Time / schedule (RTC or software timing)",
+                    "User-defined settings (thresholds, schedules)",
+                    "Environmental disturbances (plant uptake, evaporation)",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-2">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      {t}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Arrow */}
-              <div className="hidden md:flex items-center justify-center text-foreground/35">
+              <div className="hidden items-center justify-center text-foreground/35 md:flex">
                 <ArrowRight />
               </div>
 
-              {/* Processes */}
-              <div className="bg-card border border-border rounded-xl p-6">
-                <h4 className="font-display font-semibold text-foreground mb-4">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h4 className="mb-4 font-display font-semibold text-foreground">
                   Processes
                 </h4>
-                <ul className="space-y-2 text-foreground/75 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Measure soil moisture
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Evaluate watering demand
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Select irrigation zone & regulate water distribution
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Calibrate and control actuator position
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Enforce timing and safety constraints
-                  </li>
+                <ul className="space-y-2 text-sm text-foreground/80">
+                  {[
+                    "Measure soil moisture",
+                    "Evaluate watering demand",
+                    "Select irrigation zone & regulate water distribution",
+                    "Calibrate and control actuator position",
+                    "Enforce timing and safety constraints",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-2">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      {t}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Arrow */}
-              <div className="hidden md:flex items-center justify-center text-foreground/35">
+              <div className="hidden items-center justify-center text-foreground/35 md:flex">
                 <ArrowRight />
               </div>
 
-              {/* Outputs */}
-              <div className="bg-card border border-border rounded-xl p-6">
-                <h4 className="font-display font-semibold text-foreground mb-4">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h4 className="mb-4 font-display font-semibold text-foreground">
                   Outputs
                 </h4>
-                <ul className="space-y-2 text-foreground/75 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Regulated water delivery to zones
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    System state feedback
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
-                    Log and report system state
-                  </li>
+                <ul className="space-y-2 text-sm text-foreground/80">
+                  {[
+                    "Regulated water delivery to zones",
+                    "System state feedback",
+                    "Log and report system state",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-2">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      {t}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* Tighter spacing under boxes */}
-            <p className={`${BODY} max-w-5xl`}>
+            {/* tight spacing under boxes */}
+            <p className={`${BODY} max-w-6xl`}>
               This black-box model represents the garden irrigation system at a
               functional level. External inputs such as water supply, electrical
               power, time, and soil moisture measurements are processed by
@@ -327,24 +304,24 @@ export default function GardenProject() {
       </section>
 
       {/* Section 3: Functions, Parameters, Constraints */}
-      <section className="py-16 border-b border-border">
+      <section className="border-b border-border py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 3</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+            <p className="mb-2 font-mono text-sm text-primary">Section 3</p>
+            <h2 className="mb-10 font-display text-2xl font-bold text-foreground">
               System Functions, Parameters and Constraints
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-card border border-border rounded-xl p-6">
-                <h4 className="font-display font-semibold text-foreground mb-4">
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h4 className="mb-4 font-display font-semibold text-foreground">
                   Functions
                 </h4>
-                <ul className="space-y-2 text-foreground/75 text-sm">
+                <ul className="space-y-2 text-sm text-foreground/80">
                   {[
                     "Track time and scheduling state",
                     "Sense soil conditions",
@@ -355,18 +332,18 @@ export default function GardenProject() {
                     "Report system state",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-2">
-                      <span className="w-1 h-1 bg-cyan-400 rounded-full mt-2 shrink-0" />
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-cyan-400" />
                       {t}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-card border border-border rounded-xl p-6">
-                <h4 className="font-display font-semibold text-foreground mb-4">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h4 className="mb-4 font-display font-semibold text-foreground">
                   Parameters
                 </h4>
-                <ul className="space-y-2 text-foreground/75 text-sm">
+                <ul className="space-y-2 text-sm text-foreground/80">
                   {[
                     "Soil moisture thresholds per zone",
                     "Watering duration per cycle",
@@ -376,18 +353,18 @@ export default function GardenProject() {
                     "Actuator speed & positioning resolution",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-2">
-                      <span className="w-1 h-1 bg-amber-400 rounded-full mt-2 shrink-0" />
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400" />
                       {t}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-card border border-border rounded-xl p-6">
-                <h4 className="font-display font-semibold text-foreground mb-4">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <h4 className="mb-4 font-display font-semibold text-foreground">
                   Constraints
                 </h4>
-                <ul className="space-y-2 text-foreground/75 text-sm">
+                <ul className="space-y-2 text-sm text-foreground/80">
                   {[
                     "Pump pressure & flow capacity",
                     "Electrical power availability",
@@ -397,7 +374,7 @@ export default function GardenProject() {
                     "Leak prevention & safety requirements",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-2">
-                      <span className="w-1 h-1 bg-rose-400 rounded-full mt-2 shrink-0" />
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-rose-400" />
                       {t}
                     </li>
                   ))}
@@ -408,33 +385,31 @@ export default function GardenProject() {
         </div>
       </section>
 
-      {/* Section 4: System Architecture (placeholder card; we'll replace with image later) */}
-      <section className="py-16 border-b border-border bg-card/30">
+      {/* Section 4: System Architecture (placeholder) */}
+      <section className="border-b border-border bg-card/30 py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 4</p>
-            <div className="flex items-baseline gap-3 mb-8">
+            <p className="mb-2 font-mono text-sm text-primary">Section 4</p>
+            <div className="mb-8 flex flex-wrap items-baseline gap-3">
               <h2 className="font-display text-2xl font-bold text-foreground">
                 System Architecture
               </h2>
-              <span className="text-foreground/60 text-sm">
+              <span className="text-sm text-foreground/60">
                 (structural, not functional)
               </span>
             </div>
 
-            <div className="bg-card border border-border rounded-xl p-8">
-              <h3 className="font-display font-semibold text-foreground text-center mb-6">
+            <div className="rounded-2xl border border-border bg-card p-10">
+              <h3 className="mb-6 text-center font-display font-semibold text-foreground">
                 Overall System Architecture
               </h3>
-
-              <p className={`${BODY_SOFT} max-w-4xl mx-auto text-center`}>
-                Replace this with your exported architecture diagram image from
-                the PDF (we’ll do this next). For now, this section remains as a
-                placeholder.
+              <p className={`${BODY_SOFT} mx-auto max-w-5xl text-center`}>
+                Placeholder. Next step: export your architecture diagram as a
+                PNG, import it, and drop it here full-width.
               </p>
             </div>
           </motion.div>
@@ -442,24 +417,24 @@ export default function GardenProject() {
       </section>
 
       {/* Section 5: Final System Implementation */}
-      <section className="py-16 border-b border-border">
+      <section className="border-b border-border py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 5</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+            <p className="mb-2 font-mono text-sm text-primary">Section 5</p>
+            <h2 className="mb-10 font-display text-2xl font-bold text-foreground">
               Final System Implementation
             </h2>
 
-            <div className="grid lg:grid-cols-2 gap-12 mb-12 items-start">
+            <div className="mb-12 grid items-start gap-12 lg:grid-cols-2">
               <div>
                 <img
                   src={finalImage}
                   alt="Final system implementation"
-                  className="rounded-xl border border-border w-full"
+                  className="w-full rounded-2xl border border-border"
                 />
               </div>
 
@@ -472,7 +447,7 @@ export default function GardenProject() {
 
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
-                    <span className="font-medium text-foreground min-w-[120px]">
+                    <span className="min-w-[120px] font-medium text-foreground">
                       Status:
                     </span>
                     <span className={BODY_SOFT}>
@@ -480,7 +455,7 @@ export default function GardenProject() {
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="font-medium text-foreground min-w-[120px]">
+                    <span className="min-w-[120px] font-medium text-foreground">
                       Current focus:
                     </span>
                     <span className={BODY_SOFT}>
@@ -489,7 +464,7 @@ export default function GardenProject() {
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="font-medium text-foreground min-w-[120px]">
+                    <span className="min-w-[120px] font-medium text-foreground">
                       Next iteration:
                     </span>
                     <span className={BODY_SOFT}>
@@ -501,35 +476,35 @@ export default function GardenProject() {
             </div>
 
             <div className="mb-12">
-              <h3 className="font-display font-semibold text-foreground mb-4">
+              <h3 className="mb-4 font-display font-semibold text-foreground">
                 Final Video
               </h3>
-              <div className="aspect-video bg-card border border-border rounded-xl overflow-hidden">
+              <div className="aspect-video overflow-hidden rounded-2xl border border-border bg-card">
                 <video
                   src={finalVideo}
                   controls
-                  className="w-full h-full object-contain"
+                  className="h-full w-full object-contain"
                 />
               </div>
             </div>
 
             <div>
-              <h3 className="font-display font-semibold text-foreground mb-4">
+              <h3 className="mb-4 font-display font-semibold text-foreground">
                 Achieved Outcomes
               </h3>
-              <ul className="space-y-3 text-foreground/80 mb-6">
+              <ul className="mb-6 space-y-3 text-foreground/85">
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   Reduced actuation hardware from N solenoids to a single motor
                   via mechanical routing
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   Enabled per-zone watering schedules with live soil-moisture
                   feedback
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   Designed for fabrication using 3D printing and off-the-shelf
                   hardware only
                 </li>
@@ -544,22 +519,22 @@ export default function GardenProject() {
       </section>
 
       {/* Section 6: Distribution Hub Sub-System */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section className="border-b border-border bg-card/30 py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 6</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+            <p className="mb-2 font-mono text-sm text-primary">Section 6</p>
+            <h2 className="mb-10 font-display text-2xl font-bold text-foreground">
               Distribution Hub Sub-System
             </h2>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid items-start gap-12 lg:grid-cols-2">
               <div className="space-y-8">
                 <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
+                  <h3 className="mb-3 font-display font-semibold text-foreground">
                     Purpose
                   </h3>
                   <p className={BODY}>
@@ -573,10 +548,10 @@ export default function GardenProject() {
                 </div>
 
                 <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
+                  <h3 className="mb-3 font-display font-semibold text-foreground">
                     Design Requirements
                   </h3>
-                  <ul className="space-y-2 text-foreground/75 text-sm">
+                  <ul className="space-y-2 text-sm text-foreground/80">
                     {[
                       "Route water to multiple outlets using one motor",
                       "Minimize footprint for indoor use",
@@ -586,7 +561,7 @@ export default function GardenProject() {
                       "Isolate water from printed components",
                     ].map((t) => (
                       <li key={t} className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
                         {t}
                       </li>
                     ))}
@@ -594,10 +569,10 @@ export default function GardenProject() {
                 </div>
 
                 <div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">
+                  <h3 className="mb-3 font-display font-semibold text-foreground">
                     Final Implementation (Current)
                   </h3>
-                  <ul className="space-y-2 text-foreground/75 text-sm">
+                  <ul className="space-y-2 text-sm text-foreground/80">
                     {[
                       "One motor replaces multiple solenoids",
                       "Compact cylindrical form factor",
@@ -605,7 +580,7 @@ export default function GardenProject() {
                       "Designed for printed parts + off-the-shelf hardware",
                     ].map((t) => (
                       <li key={t} className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
                         {t}
                       </li>
                     ))}
@@ -613,19 +588,19 @@ export default function GardenProject() {
                 </div>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <figure className="space-y-2">
-                  <div className="aspect-square bg-card border border-border rounded-xl overflow-hidden">
+                  <div className="aspect-square overflow-hidden rounded-2xl border border-border bg-card">
                     <video
                       src={explodeVideo}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </div>
-                  <figcaption className="text-sm text-foreground/60">
+                  <figcaption className="text-sm text-foreground/65">
                     Exploded CAD view of the distribution hub assembly (stack-up
                     + sealing interfaces).
                   </figcaption>
@@ -635,9 +610,9 @@ export default function GardenProject() {
                   <img
                     src={sectionCutBlue}
                     alt="Distribution hub section cut"
-                    className="rounded-xl border border-border w-full"
+                    className="w-full rounded-2xl border border-border"
                   />
-                  <figcaption className="text-sm text-foreground/60">
+                  <figcaption className="text-sm text-foreground/65">
                     Section cut highlighting the internal flow path (blue) and
                     routed outlet geometry.
                   </figcaption>
@@ -649,29 +624,29 @@ export default function GardenProject() {
       </section>
 
       {/* Section 7: Distribution Hub Iterations */}
-      <section className="py-16 border-b border-border">
+      <section className="border-b border-border py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 7</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+            <p className="mb-2 font-mono text-sm text-primary">Section 7</p>
+            <h2 className="mb-10 font-display text-2xl font-bold text-foreground">
               Distribution Hub Sub-System — Iterations
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid gap-8 md:grid-cols-3">
               <div>
                 <img
                   src={v1SectionCut}
                   alt="Iteration 1 section cut"
-                  className="rounded-xl border border-border w-full aspect-square object-contain bg-card mb-4"
+                  className="mb-4 aspect-square w-full rounded-2xl border border-border bg-card object-contain"
                 />
-                <h3 className="font-display font-semibold text-foreground mb-2">
+                <h3 className="mb-2 font-display font-semibold text-foreground">
                   Iteration 1 — Concept Validation
                 </h3>
-                <p className={BODY_SOFT + " text-sm"}>
+                <p className={`${BODY_SOFT} text-sm`}>
                   This initial iteration explored a simple mechanical routing
                   concept to validate the single-actuator approach for multi-zone
                   water distribution.
@@ -682,12 +657,12 @@ export default function GardenProject() {
                 <img
                   src={v2Collapse}
                   alt="Iteration 2 collapsed view"
-                  className="rounded-xl border border-border w-full aspect-square object-contain bg-card mb-4"
+                  className="mb-4 aspect-square w-full rounded-2xl border border-border bg-card object-contain"
                 />
-                <h3 className="font-display font-semibold text-foreground mb-2">
+                <h3 className="mb-2 font-display font-semibold text-foreground">
                   Iteration 2 — System Integration
                 </h3>
-                <p className={BODY_SOFT + " text-sm"}>
+                <p className={`${BODY_SOFT} text-sm`}>
                   The second iteration focused on integrating the distribution
                   hub with the full system, improving sealing and mechanical
                   robustness.
@@ -695,20 +670,18 @@ export default function GardenProject() {
               </div>
 
               <div>
-                <div className="rounded-xl border border-border w-full aspect-square bg-card mb-4 flex items-center justify-center p-6">
+                <div className="mb-4 flex aspect-square w-full items-center justify-center rounded-2xl border border-border bg-card p-6">
                   <div className="text-center">
-                    <p className="font-mono text-primary text-sm mb-2">
-                      PLANNED
-                    </p>
-                    <p className="text-foreground/70 text-sm">
+                    <p className="mb-2 font-mono text-sm text-primary">PLANNED</p>
+                    <p className="text-sm text-foreground/75">
                       V3 Dry Switching Architecture
                     </p>
                   </div>
                 </div>
-                <h3 className="font-display font-semibold text-foreground mb-2">
+                <h3 className="mb-2 font-display font-semibold text-foreground">
                   Iteration 3 — Dry Switching Architecture (Planned)
                 </h3>
-                <p className={BODY_SOFT + " text-sm"}>
+                <p className={`${BODY_SOFT} text-sm`}>
                   The next iteration shifts away from rotating wetted interfaces
                   entirely by decoupling mechanical switching from fluid sealing.
                   The proposed architecture uses a dry mechanical switching
@@ -726,15 +699,15 @@ export default function GardenProject() {
       </section>
 
       {/* Section 8: Electrical & Sensing Subsystem */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section className="border-b border-border bg-card/30 py-16">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="font-mono text-primary text-sm mb-2">Section 8</p>
-            <h2 className="font-display text-2xl font-bold text-foreground mb-10">
+            <p className="mb-2 font-mono text-sm text-primary">Section 8</p>
+            <h2 className="mb-10 font-display text-2xl font-bold text-foreground">
               Electrical & Sensing Subsystem
             </h2>
 
@@ -742,17 +715,17 @@ export default function GardenProject() {
               <img
                 src={wholeBreadboard}
                 alt="Complete breadboard layout"
-                className="rounded-xl border border-border w-full max-w-5xl mx-auto brightness-90 contrast-95"
+                className="mx-auto w-full max-w-6xl rounded-2xl border border-border brightness-90 contrast-95"
               />
             </div>
 
             <div className="space-y-12">
               {/* Stepper Motor Control */}
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
+                <h3 className="mb-4 font-display font-semibold text-foreground">
                   Stepper Motor Control (Open-Loop Actuator)
                 </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
                   <div className="space-y-4">
                     <p className={BODY}>
                       The stepper motor is an open-loop actuator, meaning it
@@ -770,17 +743,17 @@ export default function GardenProject() {
                   <img
                     src={stepperCircuit}
                     alt="Stepper motor circuit"
-                    className="rounded-xl border border-border w-full"
+                    className="w-full rounded-2xl border border-border"
                   />
                 </div>
               </div>
 
               {/* Optical Calibration */}
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
+                <h3 className="mb-4 font-display font-semibold text-foreground">
                   Optical Interrupter Sensor — Homing & Re-Zeroing
                 </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
                   <div className="space-y-4">
                     <p className={BODY}>
                       An optical interrupter sensor is used for homing and
@@ -798,17 +771,17 @@ export default function GardenProject() {
                   <img
                     src={opticalCircuit}
                     alt="Optical sensor circuit"
-                    className="rounded-xl border border-border w-full"
+                    className="w-full rounded-2xl border border-border"
                   />
                 </div>
               </div>
 
               {/* RTC Simulation */}
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
+                <h3 className="mb-4 font-display font-semibold text-foreground">
                   RTC Simulation Circuit
                 </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
                   <p className={BODY}>
                     For development and testing, buttons simulate RTC (Real-Time
                     Clock) triggers, allowing manual testing of scheduled
@@ -817,17 +790,17 @@ export default function GardenProject() {
                   <img
                     src={rtcCircuit}
                     alt="RTC simulation circuit"
-                    className="rounded-xl border border-border w-full"
+                    className="w-full rounded-2xl border border-border"
                   />
                 </div>
               </div>
 
               {/* Pump Control */}
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-4">
+                <h3 className="mb-4 font-display font-semibold text-foreground">
                   DC Pump Control Circuit
                 </h3>
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
+                <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
                   <p className={BODY}>
                     The DC pump is controlled via a logic-level MOSFET
                     (IRLZ44N), enabling the microcontroller to switch the
@@ -837,7 +810,7 @@ export default function GardenProject() {
                   <img
                     src={pumpCircuit}
                     alt="Pump control circuit"
-                    className="rounded-xl border border-border w-full"
+                    className="w-full rounded-2xl border border-border"
                   />
                 </div>
               </div>
@@ -847,7 +820,7 @@ export default function GardenProject() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 border-t border-border">
+      <footer className="border-t border-border py-10">
         <div className={`${PAGE} text-center`}>
           <Link href="/projects">
             <button className="text-primary hover:underline">
