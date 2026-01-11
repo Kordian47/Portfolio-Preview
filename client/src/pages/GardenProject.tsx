@@ -436,6 +436,42 @@ export default function GardenProject() {
                 the PDF (we’ll do this next). For now, this section remains as a
                 placeholder.
               </p>
+              {/* Subsystems (structural summary) */}
+<div className="mt-8 max-w-5xl mx-auto">
+  <p className="font-mono text-primary text-sm mb-4">
+    Subsystems
+  </p>
+
+  <div className="space-y-3 text-foreground/85">
+    <div>
+      <span className="font-semibold text-foreground">
+        Water path (physical):
+      </span>{" "}
+      <span className="text-foreground/75">
+        reservoir → pump → distribution hub → zone hoses → plants
+      </span>
+    </div>
+
+    <div>
+      <span className="font-semibold text-foreground">
+        Signal path (control):
+      </span>{" "}
+      <span className="text-foreground/75">
+        sensors + clock → controller → actuators (pump + hub motor) → water
+      </span>
+    </div>
+
+    <div>
+      <span className="font-semibold text-foreground">
+        Power path:
+      </span>{" "}
+      <span className="text-foreground/75">
+        battery/PSU → controller + drivers + actuators
+      </span>
+    </div>
+  </div>
+</div>
+
             </div>
           </motion.div>
         </div>
