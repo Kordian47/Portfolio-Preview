@@ -649,9 +649,9 @@ export default function GardenProject() {
                 </div>
               </div>
 
-              <div className="space-y-6">
+              <div className="flex flex-col gap-8 items-center">
                 <figure className="space-y-2">
-                  <div className="bg-card border border-border rounded-xl overflow-hidden max-w-sm mx-auto">
+                  <div className="w-full max-w-sm bg-card border border-border rounded-xl overflow-hidden">
                     <video
                       src={explodeVideo}
                       autoPlay
@@ -671,7 +671,7 @@ export default function GardenProject() {
                   <img
                     src={sectionCutBlue}
                     alt="Distribution hub section cut"
-                    className="rounded-xl border border-border w-full"
+                    className="w-full max-w-sm rounded-xl border border-border"
                   />
                   <figcaption className="text-sm text-foreground/60">
                     Section cut highlighting the internal flow path (blue) and
