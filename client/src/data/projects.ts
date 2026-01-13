@@ -7,6 +7,7 @@ export const projects: Project[] = [
     description: "Automated indoor garden watering system with sensor feedback, scheduling, and modular expansion.",
     tags: ["Mechanical", "Electrical", "Controls", "Software"],
     featured: true,
+    image: "/projects/garden-v2-final-pic.png",
     result: "Reduced manual watering to zero and maintained consistent soil moisture across all plants.",
   },
   {
