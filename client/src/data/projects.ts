@@ -1,22 +1,15 @@
 import { Project } from "@/components/ProjectCard";
 
-import { Project } from "@/components/ProjectCard";
-import gardenImg from "@/assets/projects/garden-v2-final-pic.png";
-
 export const projects: Project[] = [
   {
     id: "automated-garden-watering",
     title: "Automated Garden Watering System",
-    description:
-      "Automated indoor garden watering system with sensor feedback, scheduling, and modular expansion.",
+    description: "Automated indoor garden watering system with sensor feedback, scheduling, and modular expansion.",
     tags: ["Mechanical", "Electrical", "Controls", "Software"],
     featured: true,
-    image: gardenImg,
-    result:
-      "Reduced manual watering to zero and maintained consistent soil moisture across all plants.",
+    image: "/projects/garden-v2-final-pic.png",
+    result: "Reduced manual watering to zero and maintained consistent soil moisture across all plants.",
   },
-];
-
   {
     id: "hobby-rocketry",
     title: "Hobby Rocketry Components",
