@@ -1,4 +1,5 @@
 import { Project } from "@/components/ProjectCard";
+import gardenImage from "@assets/garden-v2-final-pic_1768091711436.PNG";
 
 export const projects: Project[] = [
   {
@@ -7,7 +8,7 @@ export const projects: Project[] = [
     description: "Automated indoor garden watering system with sensor feedback, scheduling, and modular expansion.",
     tags: ["Mechanical", "Electrical", "Controls", "Software"],
     featured: true,
-    image: "/projects/garden-v2-final-pic.png",
+    image: gardenImage,
     result: "Reduced manual watering to zero and maintained consistent soil moisture across all plants.",
   },
   {
