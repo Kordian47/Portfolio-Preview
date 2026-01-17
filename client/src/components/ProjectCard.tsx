@@ -10,6 +10,10 @@ export interface Project {
   tags: ("Mechanical" | "Electrical" | "Controls" | "Software" | "Manufacturing")[];
   featured?: boolean;
   result?: string;
+
+  // If true, this project should appear on /projects and in Featured sections.
+  // If omitted/false, treat it as hidden (draft).
+  published?: boolean;
 }
 
 interface ProjectCardProps {
@@ -45,12 +49,15 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-muted-foreground font-mono text-sm blueprint-grid">
                 <span className="opacity-50">[Project Image]</span>
               </div>
             )}
+
             {project.featured && (
               <span className="absolute top-3 right-3 px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded">
                 Featured
@@ -62,6 +69,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             <h3 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
               {project.title}
             </h3>
+
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">
               {project.description}
             </p>
