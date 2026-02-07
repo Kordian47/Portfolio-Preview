@@ -1,7 +1,17 @@
 import { Project } from "@/components/ProjectCard";
 import gardenImage from "@assets/garden-v2-final-pic_1768091711436.PNG";
+import beamImage from "@assets/projects/beam-deflection-hero1.png";
 
 export const projects: Project[] = [
+  {
+    id: "beam-deflection-calculator",
+    title: "Beam Deflection Calculator",
+    description: "Numerical structural analysis tool for computing shear, moment, slope, and deflection of beams under arbitrary loading.",
+    tags: ["Mechanical", "Software"],
+    featured: true,
+    image: beamImage,
+    result: "Developed a robust Python tool that produces physically correct diagrams for complex loading scenarios.",
+  },
   {
     id: "automated-garden-watering",
     title: "Automated Garden Watering System",
