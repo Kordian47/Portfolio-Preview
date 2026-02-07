@@ -1,0 +1,91 @@
+Create a new project page for “Beam Deflection Calculator” that mimics the hero layout, structure, and behavior of the existing Garden project page.
+
+REFERENCE PAGE
+- Use client/src/pages/GardenProject.tsx as the visual and structural reference for the hero section.
+- Match layout, spacing, typography scale, overlays, and positioning exactly.
+
+PAGE FILE
+- Create: client/src/pages/BeamDeflectionCalculator.tsx
+- Route: /projects/beam-deflection-calculator
+- Project ID: beam-deflection-calculator
+
+HERO SECTION (MATCH GARDEN PAGE)
+- Full-width hero with background image
+- Background image filename: "beam-deflection-hero1"
+- Treat hero image as a backdrop (not foreground content)
+- Apply dark gradient overlay for contrast (same style as Garden page)
+- Hero content block (left-aligned, same placement as Garden page):
+
+  Back navigation:
+  ← Back to Projects
+
+  Metadata line:
+  Class Project · Nov 2025 – Dec 2025
+
+  Title:
+  Beam Deflection Calculator
+
+  Subtitle:
+  Numerical structural analysis tool for arbitrary beam loading
+
+  Tag pills:
+  Mechanical
+  Software
+
+INDEX CARD IMAGE
+- Project card thumbnail filename:
+  "beam-deflection-index-card"
+
+SECTION 1 — Project Overview
+- Use the same container style as the Garden page overview card
+- Bullet points (placeholder text, replace later)
+
+SECTION 2 — Abstract & Motivation
+- Heading: Abstract & Motivation
+- Body text: [PLACEHOLDER — replace later]
+
+SECTION 3 — System Overview & Inputs/Outputs
+- Heading: System Overview (Inputs → Outputs)
+- Insert image placeholder
+- Reference image filename in text:
+  "beam-deflection-input-sheet"
+
+SECTION 4 — Numerical Methods & Governing Theory
+- Heading: Numerical Methods & Governing Theory
+- Body text: [PLACEHOLDER]
+
+SECTION 5 — Code Flow & Architecture
+- Heading: Code Flow & Architecture
+- Insert diagram placeholder
+- Reference image filename:
+  "beam-deflection-code-flow"
+
+SECTION 6 — Results
+- Heading: Results
+- Three-image grid
+- Reference filenames below each image:
+  "beam-deflection-load-distribution"
+  "beam-deflection-response-diagrams"
+  "beam-deflection-max-values"
+
+SECTION 7 — Validation
+- Heading: Validation
+- Body text: [PLACEHOLDER]
+
+SECTION 8 — Detailed Numerical Methods
+- Heading: Detailed Numerical Methods & Implementation
+- Leave section intentionally blank
+
+SECTION 9 — Future Implementations
+- Heading: Future Implementations
+- Bullet list placeholder
+
+SECTION 10 — Conclusion
+- Heading: Conclusion
+- Body text: [PLACEHOLDER]
+
+GENERAL REQUIREMENTS
+- Do not invent new layouts; reuse Garden project patterns
+- Ensure hero visually replaces the gray placeholder shown in the PDF slides
+- All images must be swappable by filename only
+- Do not include the word “caption” anywhere
