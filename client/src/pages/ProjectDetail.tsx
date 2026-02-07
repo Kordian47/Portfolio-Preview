@@ -32,6 +32,14 @@ const projectDetails: Record<string, { problem: string; solution: string; result
     solution: "Built custom enclosures and fixtures for the laser engraver, incorporating safety interlocks, ventilation pathways, and precision work-holding fixtures.",
     result: "Enhanced precision, operator safety, and improved workflow efficiency by 45% through better material handling and reduced setup time.",
   },
+  "beam-deflection-calculator": {
+    problem:
+      "Hand calculations of beam shear, moment, slope, and deflection are time-consuming, error-prone, and impractical for complex or mixed loading conditions.",
+    solution:
+      "Developed a numerical beam analysis tool using Euler–Bernoulli beam theory, static equilibrium, LU decomposition, and numerical integration to compute shear, moment, slope, and deflection for arbitrary loading scenarios.",
+    result:
+      "Produced physically correct response diagrams that match analytical solutions in shape and magnitude, while remaining extensible to more complex structural analysis problems.",
+  },
 };
 
 export default function ProjectDetail() {
