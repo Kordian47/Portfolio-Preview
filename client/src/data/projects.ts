@@ -1,6 +1,6 @@
 import { Project } from "@/components/ProjectCard";
 import gardenImage from "@assets/garden-v2-final-pic_1768091711436.PNG";
-import beamImage from "@assets/projects/beam-deflection-hero1.png";
+import beamImage from "@assets/beam-deflection-hero1.png";
 
 export const projects: Project[] = [
   {
