@@ -51,25 +51,25 @@ export function ProjectSidebar({ sections }: ProjectSidebarProps) {
   };
 
   return (
-    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 flex flex-col items-start">
+    <div className="fixed left-4 bottom-6 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-50 flex flex-col-reverse md:flex-col items-start gap-3 md:gap-0">
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative z-10 w-10 h-10 rounded-full bg-background border border-cyan-500/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all shadow-[0_0_10px_rgba(6,182,212,0.1)] group"
+        className="relative z-10 w-12 h-12 md:w-10 md:h-10 rounded-full bg-background border border-cyan-500/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)] group"
         aria-label="Toggle Navigation"
       >
-        {isOpen ? <X size={20} /> : <Menu size={20} />}
+        {isOpen ? <X size={24} className="md:w-5 md:h-5" /> : <Menu size={24} className="md:w-5 md:h-5" />}
       </button>
 
       {/* Menu Options */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, width: 0, x: -20 }}
-            animate={{ opacity: 1, width: "auto", x: 0 }}
-            exit={{ opacity: 0, width: 0, x: -20 }}
+            initial={{ opacity: 0, height: 0, y: 20 }}
+            animate={{ opacity: 1, height: "auto", y: 0 }}
+            exit={{ opacity: 0, height: 0, y: 20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden ml-2 bg-background/80 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.05)] py-3 pl-3 pr-4"
+            className="overflow-hidden md:ml-2 bg-background/90 md:bg-background/80 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.05)] py-3 pl-3 pr-4 mb-2 md:mb-0"
           >
             <ul className="space-y-3 relative">
               {/* Connecting line */}
