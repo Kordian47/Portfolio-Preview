@@ -11,10 +11,22 @@ import loadDistImage from "@assets/beam-deflection-load-distribution.png";
 import responseDiagramsImage from "@assets/beam-deflection-response-diagrams.png";
 import maxValuesImage from "@assets/beam-deflection-max-values.png";
 
+import { ProjectSidebar } from "@/components/ProjectSidebar";
+
 const tagColors: Record<string, string> = {
   Mechanical: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
   Software: "bg-violet-500/10 text-violet-400 border-violet-500/30",
 };
+
+const beamSections = [
+  { id: "section-2", number: "Section 2", title: "Abstract & Motivation" },
+  { id: "section-3", number: "Section 3", title: "System Overview" },
+  { id: "section-4", number: "Section 4", title: "Numerical Methods" },
+  { id: "section-5", number: "Section 5", title: "Code Flow" },
+  { id: "section-6", number: "Section 6", title: "Results" },
+  { id: "section-7", number: "Section 7", title: "Validation" },
+  { id: "section-8", number: "Section 8", title: "Detailed Methods" }
+];
 
 // Layout + typography helpers
 const PAGE = "mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10";
@@ -25,6 +37,7 @@ export default function BeamDeflectionCalculator() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
       <Navbar />
+      <ProjectSidebar sections={beamSections} />
       <div className="h-16" />
 
       {/* Hero Section */}
@@ -117,7 +130,7 @@ export default function BeamDeflectionCalculator() {
       </section>
 
       {/* Section 2: Abstract & Motivation */}
-      <section className="py-16 border-b border-border">
+      <section id="section-2" className="py-16 border-b border-border">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -158,7 +171,7 @@ export default function BeamDeflectionCalculator() {
       </section>
 
       {/* Section 3: System Overview (Inputs -> Outputs) */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section id="section-3" className="py-16 border-b border-border bg-card/30">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -243,7 +256,7 @@ export default function BeamDeflectionCalculator() {
       </section>
 
       {/* Section 4: Numerical Methods & Governing Theory */}
-      <section className="py-16 border-b border-border">
+      <section id="section-4" className="py-16 border-b border-border">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -305,7 +318,7 @@ export default function BeamDeflectionCalculator() {
       </section>
 
       {/* Section 5: Code Flow & Architecture */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section id="section-5" className="py-16 border-b border-border bg-card/30">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -358,7 +371,7 @@ export default function BeamDeflectionCalculator() {
       </section>
 
       {/* Section 6: Results */}
-      <section className="py-16 border-b border-border">
+      <section id="section-6" className="py-16 border-b border-border">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -410,7 +423,7 @@ export default function BeamDeflectionCalculator() {
       </section>
 
       {/* Section 7: Validation */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section id="section-7" className="py-16 border-b border-border bg-card/30">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -480,7 +493,7 @@ export default function BeamDeflectionCalculator() {
       </section>
 
       {/* Section 8: Detailed Numerical Methods (Blank as requested) */}
-      <section className="py-16 border-b border-border">
+      <section id="section-8" className="py-16 border-b border-border">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

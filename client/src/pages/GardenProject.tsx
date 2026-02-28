@@ -17,6 +17,8 @@ import rtcCircuit from "@assets/garden-RTC-sim-circuit_1768091711435.png";
 import opticalCircuit from "@assets/garden-optical-circuit_1768091711437.png";
 import pumpCircuit from "@assets/garden-pump-control-circuit_1768091711437.png";
 
+import { ProjectSidebar } from "@/components/ProjectSidebar";
+
 const tagColors: Record<string, string> = {
   Mechanical: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
   Electrical: "bg-amber-500/10 text-amber-400 border-amber-500/30",
@@ -24,6 +26,13 @@ const tagColors: Record<string, string> = {
   Software: "bg-violet-500/10 text-violet-400 border-violet-500/30",
 };
 
+const projectSections = [
+  { id: "section-1", number: "Section 1", title: "System Overview" },
+  { id: "section-2", number: "Section 2", title: "High Level Model" },
+  { id: "section-3", number: "Section 3", title: "Functions & Parameters" },
+  { id: "section-4", number: "Section 4", title: "System Architecture" },
+  { id: "section-5", number: "Section 5", title: "Final Implementation" }
+];
 
 // Layout + typography helpers
 const PAGE = "mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10";
@@ -36,6 +45,7 @@ export default function GardenProject() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <ProjectSidebar sections={projectSections} />
       <div className="h-16" />
       {/* Hero + Overview (combined; hero image continues under overview) */}
       <section className="relative overflow-hidden border-b border-border">
@@ -133,7 +143,7 @@ export default function GardenProject() {
       </section>
 
       {/* Section 1: System Overview & Design Intent */}
-      <section className="py-16 border-b border-border">
+      <section id="section-1" className="py-16 border-b border-border">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -201,7 +211,7 @@ export default function GardenProject() {
       </section>
 
       {/* Section 2: High Level System Model */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section id="section-2" className="py-16 border-b border-border bg-card/30">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -327,7 +337,7 @@ export default function GardenProject() {
       </section>
 
       {/* Section 3: Functions, Parameters, Constraints */}
-      <section className="py-16 border-b border-border">
+      <section id="section-3" className="py-16 border-b border-border">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -409,7 +419,7 @@ export default function GardenProject() {
       </section>
 
       {/* Section 4: System Architecture (placeholder card; we'll replace with image later) */}
-      <section className="py-16 border-b border-border bg-card/30">
+      <section id="section-4" className="py-16 border-b border-border bg-card/30">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -478,7 +488,7 @@ export default function GardenProject() {
       </section>
 
       {/* Section 5: Final System Implementation */}
-      <section className="py-16 border-b border-border">
+      <section id="section-5" className="py-16 border-b border-border">
         <div className={PAGE}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
