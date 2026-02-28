@@ -34,7 +34,7 @@ export const projects: Project[] = [
     title: "CNC Automation Fixtures",
     description: "3D-printed calibration fixtures for automated CNC-loading robot arm systems.",
     tags: ["Mechanical", "Controls", "Manufacturing"],
-    featured: true,
+    featured: false,
     result: "Improved system accuracy and reduced setup time by 30%.",
   },
   {
