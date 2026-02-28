@@ -69,7 +69,7 @@ export function ProjectSidebar({ sections }: ProjectSidebarProps) {
             animate={{ opacity: 1, width: "auto", x: 0 }}
             exit={{ opacity: 0, width: 0, x: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden ml-2 bg-background/80 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.05)] py-3 pl-3 pr-4 min-w-[160px]"
+            className="overflow-hidden ml-2 bg-background/80 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.05)] py-3 pl-3 pr-4 min-w-[140px]"
           >
             <ul className="space-y-3 relative">
               {/* Connecting line */}
