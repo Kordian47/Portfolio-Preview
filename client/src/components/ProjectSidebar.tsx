@@ -103,7 +103,6 @@ export function ProjectSidebar({ sections }: ProjectSidebarProps) {
                           {section.number}
                         </span>
                         <span className={`text-xs transition-colors max-w-[110px] leading-tight ${isActive ? "text-white font-medium" : "text-foreground/60 group-hover:text-foreground/90"}`}>
-                          isActive ? "text-white font-medium" : "text-foreground/60 group-hover:text-foreground/90"
                         }`}>
                           {section.title}
                         </span>
