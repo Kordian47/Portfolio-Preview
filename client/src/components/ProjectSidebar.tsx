@@ -51,7 +51,7 @@ export function ProjectSidebar({ sections }: ProjectSidebarProps) {
   };
 
   return (
-    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 flex items-start">
+    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 flex flex-col items-start">
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
