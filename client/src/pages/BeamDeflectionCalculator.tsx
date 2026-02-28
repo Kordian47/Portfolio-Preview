@@ -4,12 +4,12 @@ import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 
 // Asset imports
-import heroImage from "@assets/projects/beam-deflection-hero1.png";
-import inputSheetImage from "@assets/projects/beam-deflection-input-sheet.png";
-import codeFlowImage from "@assets/projects/beam-deflection-code-flow.png";
-import loadDistImage from "@assets/projects/beam-deflection-load-distribution.png";
-import responseDiagramsImage from "@assets/projects/beam-deflection-response-diagrams.png";
-import maxValuesImage from "@assets/projects/beam-deflection-max-values.png";
+import heroImage from "@assets/beam-deflection-hero1.png";
+import inputSheetImage from "@assets/beam-deflection-input-sheet.png";
+import codeFlowImage from "@assets/beam-deflection-code-flow.png";
+import loadDistImage from "@assets/beam-deflection-load-distribution.png";
+import responseDiagramsImage from "@assets/beam-deflection-response-diagrams.png";
+import maxValuesImage from "@assets/beam-deflection-max-values.png";
 
 const tagColors: Record<string, string> = {
   Mechanical: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
