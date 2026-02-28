@@ -8,6 +8,7 @@ import Projects from "@/pages/Projects";
 import ProjectDetail from "@/pages/ProjectDetail";
 import GardenProject from "@/pages/GardenProject";
 import BeamDeflectionCalculator from "@/pages/BeamDeflectionCalculator";
+import EngineeringTools from "@/pages/EngineeringTools";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/projects/beam-deflection-calculator" component={BeamDeflectionCalculator} />
       <Route path="/projects/automated-garden-watering" component={GardenProject} />
       <Route path="/projects/:id" component={ProjectDetail} />
+      <Route path="/tools" component={EngineeringTools} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -6,6 +6,7 @@ import { Menu, X, FileText } from "lucide-react";
 const navItems = [
   { label: "About", href: "/#about" },
   { label: "Projects", href: "/projects" },
+  { label: "Tools", href: "/tools" },
   { label: "Skills", href: "/#skills" },
   { label: "Experience", href: "/#experience" },
   { label: "Goals", href: "/#goals" },
@@ -44,7 +45,7 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              item.href === "/projects" ? (
+              item.href.startsWith("/") && !item.href.startsWith("/#") ? (
                 <Link key={item.label} href={item.href}>
                   <span
                     className="text-[15px] text-muted-foreground hover:text-foreground transition-colors cursor-pointer font-medium"
@@ -92,7 +93,7 @@ export function Navbar() {
             className="md:hidden mt-4 pb-4 flex flex-col gap-4"
           >
             {navItems.map((item) => (
-              item.href === "/projects" ? (
+              item.href.startsWith("/") && !item.href.startsWith("/#") ? (
                 <Link key={item.label} href={item.href}>
                   <span
                     onClick={() => setIsOpen(false)}
