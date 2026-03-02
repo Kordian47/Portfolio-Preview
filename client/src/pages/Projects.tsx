@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
+import { ArrowRight, Hammer } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
@@ -87,6 +89,42 @@ export default function Projects() {
               </p>
             </div>
           )}
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-16"
+          >
+            <h2 className="font-display text-2xl font-bold text-foreground mb-6">
+              Engineering Artifacts
+            </h2>
+
+            <Link href="/projects/artifacts">
+              <div
+                className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary/40 transition-all duration-300 cursor-pointer max-w-md"
+                data-testid="card-artifacts"
+              >
+                <div className="aspect-video bg-muted relative overflow-hidden">
+                  <div className="w-full h-full flex items-center justify-center blueprint-grid">
+                    <Hammer className="text-primary/40 group-hover:text-primary/70 transition-colors" size={48} />
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                    Engineering Artifacts & Rapid Builds
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    A collection of smaller builds, fixtures, jigs, and rapid mechanical solutions.
+                  </p>
+                  <span className="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                    View collection <ArrowRight size={14} />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         </div>
       </main>
     </div>
