@@ -33,14 +33,14 @@ export function ArtifactModal({ artifact, onClose }: ArtifactModalProps) {
         onClick={onClose}
         data-testid="modal-backdrop"
       >
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card border border-border rounded-2xl shadow-2xl z-10"
+          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-card border border-border rounded-2xl shadow-2xl z-10"
           onClick={(e) => e.stopPropagation()}
           data-testid={`modal-artifact-${artifact.id}`}
         >
