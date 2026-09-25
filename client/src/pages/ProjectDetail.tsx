@@ -43,6 +43,8 @@ export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
   const project = projects.find((p) => p.id === id);
   const details = id ? projectDetails[id] : null;
+  const showUpdatesNotice =
+    id === "cnc-automation-fixtures" || id === "laser-engraver-enclosure";
 
   if (!project) {
     return (
@@ -68,6 +70,15 @@ export default function ProjectDetail() {
 
       <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">
+          {showUpdatesNotice && (
+            <p
+              role="status"
+              className="mb-6 rounded-lg border border-primary/30 bg-primary/10 px-5 py-4 text-center font-display text-lg font-semibold text-primary"
+            >
+              Page updates coming soon
+            </p>
+          )}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
