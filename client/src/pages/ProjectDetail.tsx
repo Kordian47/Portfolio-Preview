@@ -44,7 +44,9 @@ export default function ProjectDetail() {
   const project = projects.find((p) => p.id === id);
   const details = id ? projectDetails[id] : null;
   const showUpdatesNotice =
-    id === "cnc-automation-fixtures" || id === "laser-engraver-enclosure";
+    id === "cnc-automation-fixtures" ||
+    id === "laser-engraver-enclosure" ||
+    id === "hobby-rocketry";
 
   if (!project) {
     return (
