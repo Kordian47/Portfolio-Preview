@@ -73,7 +73,7 @@ export function Navbar() {
                 data-testid="button-resume"
               >
                 <FileText size={16} />
-                Resume
+                View Resume
               </a>
               <a
                 href="/resume.pdf"
@@ -84,7 +84,7 @@ export function Navbar() {
                 data-testid="button-download-resume"
               >
                 <Download size={16} />
-                Download
+                Download Resume
               </a>
             </div>
           </div>
@@ -135,7 +135,7 @@ export function Navbar() {
                 data-testid="button-mobile-resume"
               >
                 <FileText size={16} />
-                Resume
+                View Resume
               </a>
               <a
                 href="/resume.pdf"
@@ -146,7 +146,7 @@ export function Navbar() {
                 data-testid="button-mobile-download-resume"
               >
                 <Download size={16} />
-                Download
+                Download Resume
               </a>
             </div>
           </motion.div>
