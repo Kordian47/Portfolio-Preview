@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Mail, Linkedin, Github, ChevronDown } from "lucide-react";
+import { ArrowRight, Mail, Linkedin, ChevronDown } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
@@ -410,7 +410,7 @@ export default function Home() {
 
             <div className="flex justify-center gap-6 mb-8">
               <a
-                href="mailto:kcebulla1987@gmail.com"
+                href="mailto:hello@kordiancebulla.com"
                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                 data-testid="link-email"
               >
@@ -427,20 +427,10 @@ export default function Home() {
                 <Linkedin size={20} />
                 <span className="text-sm">LinkedIn</span>
               </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                data-testid="link-github"
-              >
-                <Github size={20} />
-                <span className="text-sm">GitHub</span>
-              </a>
             </div>
 
             <a
-              href="mailto:kcebulla1987@gmail.com"
+              href="mailto:hello@kordiancebulla.com"
               className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md font-medium hover:bg-primary/90 transition-colors"
               data-testid="button-say-hello"
             >

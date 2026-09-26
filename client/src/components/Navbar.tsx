@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { Menu, X, FileText, Download } from "lucide-react";
+import { Menu, X, FileText } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "/#about" },
@@ -75,17 +75,6 @@ export function Navbar() {
                 <FileText size={16} />
                 View Resume
               </a>
-              <a
-                href="/resume.pdf"
-                download="Kordian-Cebulla-Resume.pdf"
-                aria-label="Download résumé PDF"
-                title="Download résumé PDF"
-                className="flex items-center gap-2 px-3 py-2 border border-border text-muted-foreground rounded-md text-sm font-medium hover:text-foreground hover:border-primary/50 transition-colors"
-                data-testid="button-download-resume"
-              >
-                <Download size={16} />
-                Download Resume
-              </a>
             </div>
           </div>
 
@@ -136,17 +125,6 @@ export function Navbar() {
               >
                 <FileText size={16} />
                 View Resume
-              </a>
-              <a
-                href="/resume.pdf"
-                download="Kordian-Cebulla-Resume.pdf"
-                aria-label="Download résumé PDF"
-                title="Download résumé PDF"
-                className="flex items-center gap-2 px-3 py-2 border border-border text-muted-foreground rounded-md text-sm font-medium hover:text-foreground hover:border-primary/50 transition-colors"
-                data-testid="button-mobile-download-resume"
-              >
-                <Download size={16} />
-                Download Resume
               </a>
             </div>
           </motion.div>
