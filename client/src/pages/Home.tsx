@@ -404,8 +404,8 @@ export default function Home() {
               Get In Touch
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-              I'm actively seeking internship and full-time opportunities in mechanical 
-              engineering, robotics, and manufacturing. Let's connect.
+              I'm seeking full-time opportunities in mechanical engineering, robotics,
+              and manufacturing. Let's connect.
             </p>
 
             <div className="flex justify-center gap-6 mb-8">
