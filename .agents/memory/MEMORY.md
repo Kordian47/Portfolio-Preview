@@ -1,0 +1,1 @@
+- [Branch-switch asset recovery](branch-switch-asset-recovery.md) — uploaded assets may disappear across branch checkouts while ignored build output remains; verify before reuse.
