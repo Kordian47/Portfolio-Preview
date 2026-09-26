@@ -57,7 +57,7 @@ const education = [
     location: "Bozeman, MT",
     period: "August 2022 - December 2026",
     points: [
-      "GPA: 3.62",
+      "GPA: 3.56",
       "Dean's List - Fall 2021, Spring 2024, Fall 2024",
     ],
   },
