@@ -3,14 +3,6 @@ import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 
-// Asset imports
-import heroImage from "@assets/beam-deflection-hero1.png";
-import inputSheetImage from "@assets/beam-deflection-input-sheet.png";
-import codeFlowImage from "@assets/beam-deflection-code-flow.png";
-import loadDistImage from "@assets/beam-deflection-load-distribution.png";
-import responseDiagramsImage from "@assets/beam-deflection-response-diagrams.png";
-import maxValuesImage from "@assets/beam-deflection-max-values.png";
-
 import { ProjectSidebar } from "@/components/ProjectSidebar";
 
 const tagColors: Record<string, string> = {
@@ -33,6 +25,18 @@ const PAGE = "mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10";
 const BODY = "text-foreground/85 leading-relaxed";
 const BODY_SOFT = "text-foreground/75 leading-relaxed";
 
+function ImageComingSoon({ className = "" }: { className?: string }) {
+  return (
+    <div
+      role="img"
+      aria-label="Image coming soon"
+      className={`blueprint-grid flex items-center justify-center rounded-xl border border-dashed border-primary/35 bg-card/50 px-6 text-center text-sm font-medium text-foreground/65 ${className}`}
+    >
+      Image coming soon
+    </div>
+  );
+}
+
 export default function BeamDeflectionCalculator() {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
@@ -42,17 +46,6 @@ export default function BeamDeflectionCalculator() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-border">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Beam Deflection Calculator"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
-        </div>
-
         <div className="relative z-10">
           <div className={`${PAGE} pt-16 pb-10`}>
             <motion.div
@@ -122,6 +115,10 @@ export default function BeamDeflectionCalculator() {
                 </div>
               </div>
             </motion.div>
+          </div>
+
+          <div className={`${PAGE} pb-8`}>
+            <ImageComingSoon className="aspect-video max-w-3xl" />
           </div>
           
           {/* subtle fade spacer */}
@@ -236,11 +233,7 @@ export default function BeamDeflectionCalculator() {
 
                <div>
                  <figure>
-                   <img
-                     src={inputSheetImage}
-                     alt="Excel input sheet interface"
-                     className="rounded-xl border border-border w-full shadow-lg"
-                   />
+                    <ImageComingSoon className="w-full aspect-video shadow-lg" />
                    <figcaption className="mt-3 text-center text-sm text-foreground/50 italic">
                      Input Interface Structure
                    </figcaption>
@@ -359,11 +352,7 @@ export default function BeamDeflectionCalculator() {
               </div>
 
               <div>
-                <img
-                  src={codeFlowImage}
-                  alt="Code flow diagram"
-                  className="rounded-xl border border-border w-full shadow-lg"
-                />
+                <ImageComingSoon className="w-full aspect-video shadow-lg" />
               </div>
             </div>
           </motion.div>
@@ -392,29 +381,17 @@ export default function BeamDeflectionCalculator() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-3">
-                <img
-                  src={loadDistImage}
-                  alt="Load distribution graph"
-                  className="rounded-xl border border-border w-full aspect-[4/3] object-cover"
-                />
+                <ImageComingSoon className="w-full aspect-[4/3]" />
                 <p className="text-sm text-foreground/60">Load Distribution</p>
               </div>
               
               <div className="space-y-3">
-                <img
-                  src={responseDiagramsImage}
-                  alt="Response diagrams"
-                  className="rounded-xl border border-border w-full aspect-[4/3] object-cover"
-                />
+                <ImageComingSoon className="w-full aspect-[4/3]" />
                 <p className="text-sm text-foreground/60">Shear, Moment, Slope, Deflection</p>
               </div>
 
               <div className="space-y-3">
-                <img
-                  src={maxValuesImage}
-                  alt="Max values table"
-                  className="rounded-xl border border-border w-full aspect-[4/3] object-cover"
-                />
+                <ImageComingSoon className="w-full aspect-[4/3]" />
                 <p className="text-sm text-foreground/60">Computed Maximum Values</p>
               </div>
             </div>

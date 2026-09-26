@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X, FileText, Download } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "/#about" },
@@ -64,16 +64,29 @@ export function Navbar() {
                 </button>
               )
             ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
-              data-testid="button-resume"
-            >
-              <FileText size={16} />
-              Resume
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
+                data-testid="button-resume"
+              >
+                <FileText size={16} />
+                Resume
+              </a>
+              <a
+                href="/resume.pdf"
+                download="Kordian-Cebulla-Resume.pdf"
+                aria-label="Download résumé PDF"
+                title="Download résumé PDF"
+                className="flex items-center gap-2 px-3 py-2 border border-border text-muted-foreground rounded-md text-sm font-medium hover:text-foreground hover:border-primary/50 transition-colors"
+                data-testid="button-download-resume"
+              >
+                <Download size={16} />
+                Download
+              </a>
+            </div>
           </div>
 
           <button
@@ -113,16 +126,29 @@ export function Navbar() {
                 </button>
               )
             ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium w-fit"
-              data-testid="button-mobile-resume"
-            >
-              <FileText size={16} />
-              Resume
-            </a>
+            <div className="flex items-center gap-2 pt-1">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium w-fit"
+                data-testid="button-mobile-resume"
+              >
+                <FileText size={16} />
+                Resume
+              </a>
+              <a
+                href="/resume.pdf"
+                download="Kordian-Cebulla-Resume.pdf"
+                aria-label="Download résumé PDF"
+                title="Download résumé PDF"
+                className="flex items-center gap-2 px-3 py-2 border border-border text-muted-foreground rounded-md text-sm font-medium hover:text-foreground hover:border-primary/50 transition-colors"
+                data-testid="button-mobile-download-resume"
+              >
+                <Download size={16} />
+                Download
+              </a>
+            </div>
           </motion.div>
         )}
       </div>
