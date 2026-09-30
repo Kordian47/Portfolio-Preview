@@ -27,7 +27,7 @@ const beamSections = [
 ];
 
 // Layout + typography helpers
-const PAGE = "mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-10";
+const PAGE = "mx-auto w-full max-w-screen-2xl px-4 sm:px-6 md:pl-56 lg:pr-10";
 const BODY = "text-foreground/85 leading-relaxed";
 const BODY_SOFT = "text-foreground/75 leading-relaxed";
 
@@ -56,13 +56,15 @@ function ProjectFigure({
 }) {
   return (
     <figure className={`overflow-hidden rounded-xl border border-border bg-white shadow-lg ${className}`}>
-      <img
-        src={src}
-        alt={alt}
-        className="block h-auto w-full"
-        loading="lazy"
-        decoding="async"
-      />
+      <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${caption} at full size`} className="block cursor-zoom-in">
+        <img
+          src={src}
+          alt={alt}
+          className="block h-auto w-full"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
       <figcaption className="border-t border-border/70 px-4 py-3 text-center text-sm text-foreground/70">
         {caption}
       </figcaption>
@@ -218,8 +220,8 @@ export default function BeamDeflectionCalculator() {
               System Overview (Inputs → Outputs)
             </h2>
 
-            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-center mb-12">
-               <div className="space-y-6">
+            <div className="space-y-8 mb-12">
+               <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-card border border-border rounded-xl p-6">
                     <h3 className="font-display font-semibold text-foreground mb-3">Inputs</h3>
                     <ul className="space-y-2 text-foreground/75 text-sm">
@@ -416,7 +418,7 @@ export default function BeamDeflectionCalculator() {
                For tested cases, the numerical results matched analytical solutions in both shape and magnitude.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid xl:grid-cols-2 gap-6">
               <ProjectFigure
                 src={shearDiagramImage}
                 alt="Shear-force diagram showing shear force along the beam"
