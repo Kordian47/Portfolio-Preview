@@ -4,6 +4,12 @@ import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 
 import { ProjectSidebar } from "@/components/ProjectSidebar";
+import loadDistributionImage from "@assets/Load_distribution_1790793205171.png";
+import shearDiagramImage from "@assets/shear_1790793205171.png";
+import momentDiagramImage from "@assets/moment_1790793205172.png";
+import slopeDiagramImage from "@assets/slope_1790793205172.png";
+import deflectionDiagramImage from "@assets/deflection_1790793205172.png";
+import inputSheetImage from "@assets/Screenshot_2026-09-30_123315_1790793251007.png";
 
 const tagColors: Record<string, string> = {
   Mechanical: "bg-cyan-500/10 text-cyan-400 border-cyan-500/30",
@@ -34,6 +40,33 @@ function ImageComingSoon({ className = "" }: { className?: string }) {
     >
       Image coming soon
     </div>
+  );
+}
+
+function ProjectFigure({
+  src,
+  alt,
+  caption,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  caption: string;
+  className?: string;
+}) {
+  return (
+    <figure className={`overflow-hidden rounded-xl border border-border bg-white shadow-lg ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        className="block h-auto w-full"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption className="border-t border-border/70 px-4 py-3 text-center text-sm text-foreground/70">
+        {caption}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -118,7 +151,12 @@ export default function BeamDeflectionCalculator() {
           </div>
 
           <div className={`${PAGE} pb-8`}>
-            <ImageComingSoon className="aspect-video max-w-3xl" />
+            <ProjectFigure
+              src={loadDistributionImage}
+              alt="Beam load diagram showing fixed and free supports, point loads, and distributed loading"
+              caption="Applied loads and support conditions"
+              className="max-w-4xl"
+            />
           </div>
           
           {/* subtle fade spacer */}
@@ -232,12 +270,11 @@ export default function BeamDeflectionCalculator() {
                </div>
 
                <div>
-                 <figure>
-                    <ImageComingSoon className="w-full aspect-video shadow-lg" />
-                   <figcaption className="mt-3 text-center text-sm text-foreground/50 italic">
-                     Input Interface Structure
-                   </figcaption>
-                 </figure>
+                 <ProjectFigure
+                   src={inputSheetImage}
+                   alt="Excel data-entry sheet for beam dimensions, material properties, support conditions, point loads, and distributed loads"
+                   caption="Excel data-entry sheet for beam conditions and applied loads"
+                 />
                </div>
             </div>
             
@@ -379,21 +416,27 @@ export default function BeamDeflectionCalculator() {
                For tested cases, the numerical results matched analytical solutions in both shape and magnitude.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="space-y-3">
-                <ImageComingSoon className="w-full aspect-[4/3]" />
-                <p className="text-sm text-foreground/60">Load Distribution</p>
-              </div>
-              
-              <div className="space-y-3">
-                <ImageComingSoon className="w-full aspect-[4/3]" />
-                <p className="text-sm text-foreground/60">Shear, Moment, Slope, Deflection</p>
-              </div>
-
-              <div className="space-y-3">
-                <ImageComingSoon className="w-full aspect-[4/3]" />
-                <p className="text-sm text-foreground/60">Computed Maximum Values</p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <ProjectFigure
+                src={shearDiagramImage}
+                alt="Shear-force diagram showing shear force along the beam"
+                caption="Shear force, V(x)"
+              />
+              <ProjectFigure
+                src={momentDiagramImage}
+                alt="Bending-moment diagram showing moment along the beam"
+                caption="Bending moment, M(x)"
+              />
+              <ProjectFigure
+                src={slopeDiagramImage}
+                alt="Slope diagram showing beam slope along its length"
+                caption="Slope, θ(x)"
+              />
+              <ProjectFigure
+                src={deflectionDiagramImage}
+                alt="Deflection diagram showing beam displacement along its length"
+                caption="Deflection, y(x)"
+              />
             </div>
           </motion.div>
         </div>

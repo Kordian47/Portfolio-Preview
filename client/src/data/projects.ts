@@ -1,6 +1,6 @@
 import { Project } from "@/components/ProjectCard";
 import gardenImage from "@assets/garden-v2-final-pic_1768091711436.PNG";
-import beamImage from "@assets/beam-deflection-hero1.png";
+import beamImage from "@assets/Load_distribution_1790793205171.png";
 
 export const projects: Project[] = [
   {
@@ -10,6 +10,7 @@ export const projects: Project[] = [
     tags: ["Mechanical", "Software"],
     featured: true,
     image: beamImage,
+    imageFit: "contain",
     result: "Developed a robust Python tool that produces physically correct diagrams for complex loading scenarios.",
   },
   {

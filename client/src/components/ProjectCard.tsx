@@ -7,6 +7,7 @@ export interface Project {
   title: string;
   description: string;
   image?: string;
+  imageFit?: "cover" | "contain";
   tags: ("Mechanical" | "Electrical" | "Controls" | "Software" | "Manufacturing")[];
   featured?: boolean;
   result?: string;
@@ -48,7 +49,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className={`w-full h-full transition-transform duration-500 ${
+                  project.imageFit === "contain"
+                    ? "object-contain bg-white"
+                    : "object-cover group-hover:scale-105"
+                }`}
                 loading="lazy"
                 decoding="async"
               />
