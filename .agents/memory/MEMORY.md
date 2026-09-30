@@ -1,2 +1,3 @@
 - [Branch-switch asset recovery](branch-switch-asset-recovery.md) — uploaded assets may disappear across branch checkouts while ignored build output remains; verify before reuse.
 - [Temporary package cleanup](temporary-package-cleanup.md) — one-off package installs can leave project configuration changes after uninstall; verify tracked changes.
+- [Uppercase image imports](uppercase-image-imports.md) — Vite can bundle uppercase .PNG assets while TypeScript's default asset declarations reject them.

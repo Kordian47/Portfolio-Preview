@@ -10,10 +10,12 @@ export interface Section {
 
 interface ProjectSidebarProps {
   sections: Section[];
+  initiallyOpen?: boolean;
+  collapseOnMobileSelect?: boolean;
 }
 
-export function ProjectSidebar({ sections }: ProjectSidebarProps) {
-  const [isOpen, setIsOpen] = useState(true);
+export function ProjectSidebar({ sections, initiallyOpen = true, collapseOnMobileSelect = false }: ProjectSidebarProps) {
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
@@ -47,6 +49,7 @@ export function ProjectSidebar({ sections }: ProjectSidebarProps) {
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 80; // offset for navbar
       window.scrollTo({ top: y, behavior: "smooth" });
+      if (collapseOnMobileSelect && window.innerWidth < 768) setIsOpen(false);
     }
   };
 
@@ -57,6 +60,7 @@ export function ProjectSidebar({ sections }: ProjectSidebarProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="relative z-10 w-12 h-12 md:w-10 md:h-10 rounded-full bg-background border border-cyan-500/30 flex items-center justify-center text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)] group"
         aria-label="Toggle Navigation"
+        aria-expanded={isOpen}
       >
         {isOpen ? <X size={24} className="md:w-5 md:h-5" /> : <Menu size={24} className="md:w-5 md:h-5" />}
       </button>
@@ -69,7 +73,7 @@ export function ProjectSidebar({ sections }: ProjectSidebarProps) {
             animate={{ opacity: 1, height: "auto", y: 0 }}
             exit={{ opacity: 0, height: 0, y: 20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden md:ml-2 bg-background/90 md:bg-background/80 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.05)] py-3 pl-3 pr-4 min-w-[190px] mb-2 md:mb-0"
+            className="max-h-[calc(100dvh-10rem)] overflow-x-hidden overflow-y-auto md:ml-2 bg-background/90 md:bg-background/80 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.05)] py-3 pl-3 pr-4 min-w-[190px] mb-2 md:mb-0"
           >
             <ul className="space-y-3 relative">
               {/* Connecting line */}

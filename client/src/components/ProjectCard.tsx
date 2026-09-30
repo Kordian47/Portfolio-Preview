@@ -11,6 +11,7 @@ export interface Project {
   tags: ("Mechanical" | "Electrical" | "Controls" | "Software" | "Manufacturing")[];
   featured?: boolean;
   result?: string;
+  resultLabel?: "Result" | "Status";
 
   // If true, this project should appear on /projects and in Featured sections.
   // If omitted/false, treat it as hidden (draft).
@@ -92,7 +93,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
             {project.result && (
               <p className="text-sm text-muted-foreground mb-4">
-                <span className="font-medium text-foreground">Result:</span> {project.result}
+                <span className="font-medium text-foreground">
+                  {project.resultLabel ?? "Result"}:
+                </span>{" "}
+                {project.result}
               </p>
             )}
 

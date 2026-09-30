@@ -4,14 +4,15 @@ import beamImage from "@assets/Load_distribution_1790793205171.png";
 
 export const projects: Project[] = [
   {
-    id: "beam-deflection-calculator",
-    title: "Beam Deflection Calculator",
-    description: "Numerical structural analysis tool for computing shear, moment, slope, and deflection of beams under arbitrary loading.",
-    tags: ["Mechanical", "Software"],
+    id: "tshirt-stacker",
+    title: "Automated T-Shirt Stacker",
+    description: "Senior capstone: a machine that catches garments coming off a screen-printing dryer and builds neat, stable stacks automatically.",
+    tags: ["Mechanical", "Electrical", "Controls", "Software", "Manufacturing"],
     featured: true,
-    image: beamImage,
+    image: "/projects/tshirt-stacker/hero-system-iso.png",
     imageFit: "contain",
-    result: "Developed a robust Python tool that produces physically correct diagrams for complex loading scenarios.",
+    resultLabel: "Status",
+    result: "In fabrication. Prototype rollout November 2026, Design Fair December 2026.",
   },
   {
     id: "automated-garden-watering",
@@ -21,6 +22,16 @@ export const projects: Project[] = [
     featured: true,
     image: gardenImage,
     result: "Reduced manual watering to zero and maintained consistent soil moisture across all plants.",
+  },
+  {
+    id: "beam-deflection-calculator",
+    title: "Beam Deflection Calculator",
+    description: "Numerical structural analysis tool for computing shear, moment, slope, and deflection of beams under arbitrary loading.",
+    tags: ["Mechanical", "Software"],
+    featured: true,
+    image: beamImage,
+    imageFit: "contain",
+    result: "Developed a robust Python tool that produces physically correct diagrams for complex loading scenarios.",
   },
   {
     id: "hobby-rocketry",
