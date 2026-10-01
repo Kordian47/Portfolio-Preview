@@ -298,7 +298,7 @@ export default function Home() {
                       <div className="absolute left-[4px] top-4 w-px h-[calc(100%+2rem)] bg-border" />
                     )}
 
-                    <div className="flex justify-between items-start gap-4 mb-2">
+                    <div className="mb-2 flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:gap-4 lg:flex-col lg:gap-1 xl:flex-row xl:gap-4">
                       <h3 className="font-display font-bold text-lg text-foreground">
                         {edu.institution}
                       </h3>
@@ -332,8 +332,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                      <h2 className="font-display text-3xl font-bold text-foreground">
-                        Professional Experience
+                <h2 className="font-display text-3xl font-bold text-foreground">
+                  Professional Experience
                 </h2>
               </motion.div>
 
@@ -353,7 +353,7 @@ export default function Home() {
                       <div className="absolute left-[4px] top-4 w-px h-[calc(100%+2rem)] bg-border" />
                     )}
 
-                    <div className="flex justify-between items-start gap-4 mb-2">
+                    <div className="mb-2 flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:gap-4 lg:flex-col lg:gap-1 xl:flex-row xl:gap-4">
                       <h3 className="font-display font-bold text-lg text-foreground">
                         {exp.company}
                       </h3>
