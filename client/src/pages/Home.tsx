@@ -6,46 +6,65 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import heroBackground from "@assets/abstract_mechanical_wireframe_background_1767939471903.png";
 
-const skills = {
-  mechanical: ["SOLIDWORKS", "Fusion 360", "3D Printing", "CNC Milling/Turning", "GD&T", "DFM"],
-  electrical: ["Circuit Design", "Soldering", "Sensor Integration", "Motor Control", "Arduino"],
-  software: ["Python", "C++", "MATLAB", "LabVIEW", "HTML/CSS"],
-  tools: ["Minitab", "Excel", "Microsoft Office", "Project Management"],
-};
+const skills = [
+  {
+    category: "CAD / CAM / Simulation",
+    items: ["SOLIDWORKS", "Siemens NX", "Fusion 360", "Vericut", "KiCAD"],
+  },
+  {
+    category: "Programming",
+    items: ["Python", "C++/Arduino", "MATLAB", "LabVIEW", "HTML/CSS"],
+  },
+  {
+    category: "Machine Control",
+    items: ["G-code", "Siemens SINUMERIK 840D", "Fanuc Macro B", "CNC probing routines"],
+  },
+  {
+    category: "Manufacturing",
+    items: ["CNC milling/turning", "DFM", "GD&T", "3D printing", "Soldering", "Control enclosure wiring"],
+  },
+  {
+    category: "Data / Business Tools",
+    items: ["Excel", "Minitab", "SAP", "Microsoft Office"],
+  },
+  {
+    category: "Languages",
+    items: ["English (native)", "Polish (fluent)"],
+  },
+];
 
 const workExperience = [
+  {
+    company: "Janicki Industries",
+    title: "Engineering Intern",
+    location: "Hamilton, WA",
+    period: "June 2026 - August 2026",
+    points: [
+      "Converted a machine health-check probing routine from Fanuc Macro B to Siemens SINUMERIK 840D for two 5-axis machines, structured as a main/subprogram with 4 check modes; validated it in Vericut and on-machine as a faster alternative to a roughly 1-hour test-block check that tied up a pallet and CMM time.",
+      "Built standardized tool-audit templates and a 6-module Python tool that cross-checked about 120 assembled tools across Vericut, Tool Manager, SAP, and Stellar, flagging 45 dimensional discrepancies, 15 missing tools, and 15 duplicates.",
+      "Reprogrammed a production probing sequence in NX to hold rotary orientation fixed, reducing tolerance stacking and variability before the finishing operation.",
+    ],
+  },
   {
     company: "Advanced Innovation, Inc.",
     title: "CNC Machinist",
     location: "Belgrade, MT",
     period: "March 2022 - Present",
     points: [
-      "Operate and program up to 8 CNC mills simultaneously for precision components.",
-      "Troubleshoot and maintain equipment to reduce downtime.",
-      "Conduct quality inspections ensuring compliance with client specs.",
-      "Facilitated training for new employees on CNC operation.",
+      "Operate up to 8 CNC mills simultaneously to manufacture precision components within tight tolerances.",
+      "Conduct quality inspections with precision measurement tools and troubleshoot equipment to reduce downtime.",
+      "Train new employees on CNC operation.",
     ],
   },
   {
-    company: "Hondo Garage",
+    company: "Hondo Garage & Proof",
     title: "CNC Machinist / Assembly / Media Manager",
     location: "Belgrade, MT",
     period: "January 2023 - July 2024",
     points: [
-      "Designed and 3D-printed custom fixtures to improve efficiency.",
-      "Produced professional product photography and videography for marketing.",
-      "Operated CNC mills for prototype and production runs.",
-    ],
-  },
-  {
-    company: "Proof",
-    title: "CNC Machinist / Assembly",
-    location: "Belgrade, MT",
-    period: "January 2023 - July 2024",
-    points: [
-      "Designed calibration fixtures for automated CNC-loading robot arms, reducing setup time by 30%.",
-      "Built custom enclosures for laser engravers, improving workflow efficiency by 45%.",
-      "Executed rigorous quality checks on mechanical products.",
+      "Designed and 3D-printed calibration fixtures for an automated CNC-loading robot arm, improving accuracy and reducing setup time by 30%.",
+      "Built custom enclosures and fixtures for a laser engraver, improving operator safety and reducing process time by 45%.",
+      "Assembled mechanical products with rigorous quality checks, and shot and edited product photography and video for marketing.",
     ],
   },
 ];
@@ -53,21 +72,21 @@ const workExperience = [
 const education = [
   {
     institution: "Montana State University",
-    degree: "Bachelor of Science, Mechanical Engineering",
+    degree: "Bachelor of Science, Mechanical Engineering (BSME)",
     location: "Bozeman, MT",
     period: "August 2022 - December 2026",
     points: [
-      "GPA: 3.56",
-      "Dean's List - Fall 2021, Spring 2024, Fall 2024",
+      "3.56 GPA",
+      "Awards: Dean's List - Fall 2021, Spring 2024, Fall 2024",
     ],
   },
   {
-    institution: "Montana State University",
+    institution: "Gallatin College, Montana State University",
     degree: "Certificate in CNC Machining",
     location: "Bozeman, MT",
     period: "August 2021 - May 2022",
     points: [
-      "GPA: 3.61",
+      "3.61 GPA",
     ],
   },
 ];
@@ -157,15 +176,15 @@ export default function Home() {
             </h2>
             <div className="prose prose-invert max-w-none">
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                I'm a Mechanical Engineering student at Montana State University with a passion for 
-                hands-on fabrication and systems integration. With professional experience in CNC 
-                machining and a certificate in precision manufacturing, I bridge the gap between 
-                design and production.
+                I'm a Mechanical Engineering student at Montana State University, graduating in
+                December 2026, with a CNC Machining certificate from Gallatin College. My experience
+                combines CNC production with engineering work in machine-control programming,
+                simulation, and manufacturing process improvement.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                My work spans mechanical design, electrical systems, controls, and software — 
-                building complete solutions from concept to functional prototype. I believe in 
-                engineering that works: reliable, efficient, and built with precision.
+                I work across CAD/CAM, machine control, programming, and manufacturing — translating
+                production needs into validated programs, repeatable audits, and practical
+                improvements.
               </p>
             </div>
           </motion.div>
@@ -219,8 +238,8 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.entries(skills).map(([category, items], i) => (
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {skills.map(({ category, items }, i) => (
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 20 }}
@@ -230,7 +249,7 @@ export default function Home() {
                 className="bg-card border border-border rounded-lg p-6"
               >
                 <h3 className="font-display font-semibold text-foreground capitalize mb-4">
-                  {category === "electrical" ? "Electrical / Controls" : category}
+                  {category}
                 </h3>
                 <ul className="space-y-2">
                   {items.map((skill) => (
@@ -313,8 +332,8 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="mb-12"
               >
-                <h2 className="font-display text-3xl font-bold text-foreground">
-                  Industry Experience
+                      <h2 className="font-display text-3xl font-bold text-foreground">
+                        Professional Experience
                 </h2>
               </motion.div>
 
