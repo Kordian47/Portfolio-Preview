@@ -138,8 +138,8 @@ export default function Home() {
           transition={{ delay: 1, duration: 1 }}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-muted-foreground text-xs tracking-[0.2em] font-mono">SCROLL</span>
-          <ChevronDown className="text-muted-foreground" size={20} />
+          <span className="font-mono text-sm tracking-[0.2em] text-foreground/70">SCROLL</span>
+          <ChevronDown className="text-foreground/70" size={24} />
         </motion.div>
       </section>
 
