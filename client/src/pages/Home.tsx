@@ -136,10 +136,10 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
         >
-          <span className="font-mono text-[28px] tracking-[0.2em] text-foreground/70">SCROLL</span>
-          <ChevronDown className="text-foreground/70" size={48} />
+          <span className="font-mono text-[21px] tracking-[0.2em] text-foreground/70">SCROLL</span>
+          <ChevronDown className="text-foreground/70" size={36} />
         </motion.div>
       </section>
 
